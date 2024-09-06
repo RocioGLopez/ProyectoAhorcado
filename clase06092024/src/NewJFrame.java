@@ -1,3 +1,7 @@
+// importar libreia 
+import java.io.PrintWriter;
+//Fuente https://www.geeksforgeeks.org/java-io-printwriter-class-java-set-1/
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -5,7 +9,7 @@
 /*
 
  0
--|-
+-|- holis soy al que van a colgar  :) palabra de prueba "dad"
 / \
 
 
@@ -17,7 +21,8 @@
 
 /**
  *
- * @author Ruddyard
+ * @author Ruddyard 959-23-1409
+ * @author : Agregar sus nombre
  */
 public class NewJFrame extends javax.swing.JFrame {
 
@@ -51,6 +56,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtFallos = new javax.swing.JTextField();
         btnA = new javax.swing.JButton();
+        btnD = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,6 +94,14 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnD.setFont(new java.awt.Font("Viner Hand ITC", 3, 12)); // NOI18N
+        btnD.setText("D");
+        btnD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -122,9 +136,11 @@ public class NewJFrame extends javax.swing.JFrame {
                                 .addComponent(btnIngresar))
                             .addComponent(txtLestrasEncontradas, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(84, 84, 84)
-                        .addComponent(btnA))
+                        .addComponent(btnA)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnD))
                     .addComponent(txtFallos, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 126, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,7 +161,9 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnA)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnA)
+                            .addComponent(btnD))
                         .addGap(11, 11, 11)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtLestrasEncontradas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -187,21 +205,86 @@ public class NewJFrame extends javax.swing.JFrame {
         txtTotalIngresos.setText("");
         txtFallos.setText("");
         
-        
+            
+         String palabraOriginal = txtIngresarPalabra.getText();
+          StringBuilder SimboloSustituir = new StringBuilder();
+
+        // Replasar cada letra con  el  simbolo "-"
+        for (int i = 0; i < palabraOriginal.length(); i++) {
+            SimboloSustituir.append("-");
+        }
+       
+
+        // Desplegar el simbolo de la parabra en otro text field 
+        txtLestrasEncontradas.setText(SimboloSustituir.toString());
+
+        // Save the symbol word to a file (you can change the file path as needed)
+        try (PrintWriter out = new PrintWriter("symbolWord.txt")) {
+            out.println(SimboloSustituir.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnJugarActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
-        
-        
+        // Variabeles en ingles para que no se confundan con las de btnJugar
+        String originalWord = txtIngresarPalabra.getText();
+        String symbolWord = txtLestrasEncontradas.getText();
+        String answerLetter = txtIngresarLetra.getText();
+
+    // Revisa si la letra existe en la palabra original
+    StringBuilder ActualizarPalabra = new StringBuilder(symbolWord);
+
+    for (int i = 0; i < originalWord.length(); i++) {
+        if (originalWord.charAt(i) == answerLetter.charAt(0)) {
+            ActualizarPalabra.setCharAt(i, answerLetter.charAt(0)); // Revelar la letra
+        }
+    }
+
+    // Actualiza la  text field con la nueva palabra 
+     txtLestrasEncontradas.setText(ActualizarPalabra.toString());
+     
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAActionPerformed
         // TODO add your handling code here:
-        // Si txt ingresarpalabra es true ingresar a apabra else ingresar a letras
-       txtIngresarPalabra.setText("a");
-       txtIngresarLetra.setText("a");
+        
+        
+        
+        if (txtIngresarPalabra.isEnabled()) {
+        // si esta habilitado, set text "a"
+        // Subrallado indica que es un password file 
+        // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "a");
+    }   else {
+        // si esta desactivado agregar la letra a en txt ingresar letra
+       //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("a");
+    }
     }//GEN-LAST:event_btnAActionPerformed
+
+    private void btnDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDActionPerformed
+        // TODO add your handling code here:
+           // Si txt ingresarpalabra es true ingresar a apabra else ingresar a letras
+        
+       if (txtIngresarPalabra.isEnabled()) {
+        // sies  activado, set text to "b"
+        txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "d");
+    } else {
+        // si no esta activado, set text to "b" en txtIngresarLetra
+        //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+        txtIngresarLetra.setText("d");
+    }
+           
+           
+           
+           
+           
+      
+        
+        
+    }//GEN-LAST:event_btnDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,6 +323,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnA;
+    private javax.swing.JButton btnD;
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnJugar;
     private javax.swing.JLabel jLabel1;
