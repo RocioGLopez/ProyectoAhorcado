@@ -201,6 +201,7 @@ public class NewJFrame extends javax.swing.JFrame {
         txtLestrasEncontradas.setEnabled(false);
         txtTotalIngresos.setEnabled(false);
         txtFallos.setEnabled(false);
+        txtIngresarLetra.setEnabled(false);
         txtLestrasEncontradas.setText("");
         txtTotalIngresos.setText("");
         txtFallos.setText("");
