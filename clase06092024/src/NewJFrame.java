@@ -1,4 +1,5 @@
 // importar libreia 
+
 import java.io.PrintWriter;
 //Fuente https://www.geeksforgeeks.org/java-io-printwriter-class-java-set-1/
 
@@ -6,7 +7,7 @@ import java.io.PrintWriter;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-/*
+ /*
 
  0
 -|- holis soy al que van a colgar  :) palabra de prueba "dad"
@@ -15,10 +16,7 @@ import java.io.PrintWriter;
 
 
 
-*/
-
-
-
+ */
 /**
  *
  * @author Ruddyard 959-23-1409
@@ -196,40 +194,38 @@ public class NewJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
-        // TODO add your handling code here:
+        // Tomamos la palabra oculata y mandamos a contar cuantos caracteres tiene
         String palabraOculta = txtIngresarPalabra.getText();
         int longi = palabraOculta.length();
+        //si sus cantidad de caracteres es mayor a 0 empieza el juego, de lo contrario no pasa nada.
+        if (longi > 0) {
+            txtIngresarPalabra.setEnabled(false);
+            txtLestrasEncontradas.setEnabled(false);
+            txtTotalIngresos.setEnabled(false);
+            txtFallos.setEnabled(false);
+            txtIngresarLetra.setEnabled(false);
+            txtLestrasEncontradas.setText("");
+            txtTotalIngresos.setText("");
+            txtFallos.setText("");
 
-      if (longi > 0) {
-        txtIngresarPalabra.setEnabled(false);
-        txtLestrasEncontradas.setEnabled(false);
-        txtTotalIngresos.setEnabled(false);
-        txtFallos.setEnabled(false);
-        txtIngresarLetra.setEnabled(false);
-        txtLestrasEncontradas.setText("");
-        txtTotalIngresos.setText("");
-        txtFallos.setText("");
-      
-            
-         String palabraOriginal = txtIngresarPalabra.getText();
-          StringBuilder SimboloSustituir = new StringBuilder();
+            String palabraOriginal = txtIngresarPalabra.getText();
+            StringBuilder SimboloSustituir = new StringBuilder();
 
-        // Replasar cada letra con  el  simbolo "-"
-        for (int i = 0; i < palabraOriginal.length(); i++) {
-            SimboloSustituir.append("-");
+            // Replasar cada letra con  el  simbolo "-"
+            for (int i = 0; i < palabraOriginal.length(); i++) {
+                SimboloSustituir.append("-");
+            }
+
+            // Desplegar el simbolo de la parabra en otro text field 
+            txtLestrasEncontradas.setText(SimboloSustituir.toString());
+
+            // Save the symbol word to a file (you can change the file path as needed)
+            try (PrintWriter out = new PrintWriter("symbolWord.txt")) {
+                out.println(SimboloSustituir.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-       
-
-        // Desplegar el simbolo de la parabra en otro text field 
-        txtLestrasEncontradas.setText(SimboloSustituir.toString());
-
-        // Save the symbol word to a file (you can change the file path as needed)
-        try (PrintWriter out = new PrintWriter("symbolWord.txt")) {
-            out.println(SimboloSustituir.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-      }
     }//GEN-LAST:event_btnJugarActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
@@ -239,57 +235,49 @@ public class NewJFrame extends javax.swing.JFrame {
         String symbolWord = txtLestrasEncontradas.getText();
         String answerLetter = txtIngresarLetra.getText();
 
-    // Revisa si la letra existe en la palabra original
-    StringBuilder ActualizarPalabra = new StringBuilder(symbolWord);
+        // Revisa si la letra existe en la palabra original
+        StringBuilder ActualizarPalabra = new StringBuilder(symbolWord);
 
-    for (int i = 0; i < originalWord.length(); i++) {
-        if (originalWord.charAt(i) == answerLetter.charAt(0)) {
-            ActualizarPalabra.setCharAt(i, answerLetter.charAt(0)); // Revelar la letra
+        for (int i = 0; i < originalWord.length(); i++) {
+            if (originalWord.charAt(i) == answerLetter.charAt(0)) {
+                ActualizarPalabra.setCharAt(i, answerLetter.charAt(0)); // Revelar la letra
+            }
         }
-    }
 
-    // Actualiza la  text field con la nueva palabra 
-     txtLestrasEncontradas.setText(ActualizarPalabra.toString());
-     
+        // Actualiza la  text field con la nueva palabra 
+        txtLestrasEncontradas.setText(ActualizarPalabra.toString());
+
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAActionPerformed
         // TODO add your handling code here:
-        
-        
-        
+
         if (txtIngresarPalabra.isEnabled()) {
-        // si esta habilitado, set text "a"
-        // Subrallado indica que es un password file 
-        // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            // si esta habilitado, set text "a"
+            // Subrallado indica que es un password file 
+            // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
             txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "a");
-    }   else {
-        // si esta desactivado agregar la letra a en txt ingresar letra
-       //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+        } else {
+            // si esta desactivado agregar la letra a en txt ingresar letra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
             txtIngresarLetra.setText("a");
-    }
+        }
     }//GEN-LAST:event_btnAActionPerformed
 
     private void btnDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDActionPerformed
         // TODO add your handling code here:
-           // Si txt ingresarpalabra es true ingresar a apabra else ingresar a letras
-        
-       if (txtIngresarPalabra.isEnabled()) {
-        // sies  activado, set text to "b"
-        txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "d");
-    } else {
-        // si no esta activado, set text to "b" en txtIngresarLetra
-        //Para else usar el que borra ya que solo se puede introducir una letra a la vez
-        txtIngresarLetra.setText("d");
-    }
-           
-           
-           
-           
-           
-      
-        
-        
+        // Si txt ingresarpalabra es true ingresar a apabra else ingresar a letras
+
+        if (txtIngresarPalabra.isEnabled()) {
+            // sies  activado, set text to "b"
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "d");
+        } else {
+            // si no esta activado, set text to "b" en txtIngresarLetra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("d");
+        }
+
+
     }//GEN-LAST:event_btnDActionPerformed
 
     /**
