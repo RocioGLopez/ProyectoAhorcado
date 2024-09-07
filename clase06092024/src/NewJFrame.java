@@ -209,7 +209,7 @@ public class NewJFrame extends javax.swing.JFrame {
         txtLestrasEncontradas.setText("");
         txtTotalIngresos.setText("");
         txtFallos.setText("");
-      }
+      
             
          String palabraOriginal = txtIngresarPalabra.getText();
           StringBuilder SimboloSustituir = new StringBuilder();
@@ -229,6 +229,7 @@ public class NewJFrame extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+      }
     }//GEN-LAST:event_btnJugarActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
