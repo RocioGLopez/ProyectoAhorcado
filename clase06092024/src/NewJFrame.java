@@ -197,6 +197,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
         // TODO add your handling code here:
+        String palabraOculta = txtIngresarPalabra.getText();
+        int longi = palabraOculta.length();
+
+      if (longi > 0) {
         txtIngresarPalabra.setEnabled(false);
         txtLestrasEncontradas.setEnabled(false);
         txtTotalIngresos.setEnabled(false);
@@ -205,7 +209,7 @@ public class NewJFrame extends javax.swing.JFrame {
         txtLestrasEncontradas.setText("");
         txtTotalIngresos.setText("");
         txtFallos.setText("");
-        
+      }
             
          String palabraOriginal = txtIngresarPalabra.getText();
           StringBuilder SimboloSustituir = new StringBuilder();
