@@ -57,7 +57,7 @@ public class NewJFrame extends javax.swing.JFrame {
             dibujarAgua(g);
             dibujarMuneco(g);
         }
-
+// implementacioN de coordenadas 
         private void dibujarAgua(Graphics g) {
             g.setColor(Color.BLUE);
             g.fillRect(0, getHeight() - nivelAgua, getWidth(), nivelAgua);
