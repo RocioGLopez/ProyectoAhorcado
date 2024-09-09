@@ -1,5 +1,5 @@
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Graphics; // para inicializar graficos del nivel del agua y muñeco
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
