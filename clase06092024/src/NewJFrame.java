@@ -432,7 +432,7 @@ public class NewJFrame extends javax.swing.JFrame {
         intentosFallidos++;
         ahorcadoPanel.setEstadoMuñeco(intentosFallidos);
         
-        // Aumentar el nivel del agua con cada fallo
+        // Aumentar el nivel del  agua al fallo
         int nivelAgua = (getHeight() / maxIntentos) * intentosFallidos;
         ahorcadoPanel.setNivelAgua(nivelAgua);
         
