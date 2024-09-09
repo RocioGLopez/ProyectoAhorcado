@@ -445,7 +445,7 @@ public class NewJFrame extends javax.swing.JFrame {
         // Aquí puedes reiniciar el juego o desactivar los botones
     }
     
-    // Limpiar el campo de texto para la siguiente letra
+    // Limpiar el campo de texto para las siguientes letras
     txtIngresarLetra.setText("");
     }//GEN-LAST:event_btnverificarActionPerformed
 
