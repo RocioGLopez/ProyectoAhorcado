@@ -374,7 +374,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
- // Obtener la palabra secreta y ocultarla con guiones
+ // Obtener la palabra secreta y ocultarla con guiones implementacion de guiones
     palabraSecreta = new String(txtIngresarPalabra.getPassword()).toLowerCase();
     palabraAdivinada = new StringBuilder("_".repeat(palabraSecreta.length()));
     txtLestrasEncontradas.setText(palabraAdivinada.toString());
