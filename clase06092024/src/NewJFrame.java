@@ -1,7 +1,30 @@
+<<<<<<< HEAD
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+=======
+// importar libreia 
+import java.io.PrintWriter;
+//Fuente https://www.geeksforgeeks.org/java-io-printwriter-class-java-set-1/
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+/*
+
+ 0
+-|- holis soy al que van a colgar  :) palabra de prueba "dad"
+/ \
+
+
+
+
+*/
+
+
+>>>>>>> f4484bff8d605dd13dfb2df53dacccd91a25ee2d
 
 /**
  * @author Ruddyard * @author Gabriela p
@@ -342,7 +365,43 @@ public class NewJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+=======
+    private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
+        // TODO add your handling code here:
+        txtIngresarPalabra.setEnabled(false);
+        txtLestrasEncontradas.setEnabled(false);
+        txtTotalIngresos.setEnabled(false);
+        txtFallos.setEnabled(false);
+        txtIngresarLetra.setEnabled(false);
+        txtLestrasEncontradas.setText("");
+        txtTotalIngresos.setText("");
+        txtFallos.setText("");
+        
+            
+         String palabraOriginal = txtIngresarPalabra.getText();
+          StringBuilder SimboloSustituir = new StringBuilder();
+
+        // Replasar cada letra con  el  simbolo "-"
+        for (int i = 0; i < palabraOriginal.length(); i++) {
+            SimboloSustituir.append("-");
+        }
+       
+
+        // Desplegar el simbolo de la parabra en otro text field 
+        txtLestrasEncontradas.setText(SimboloSustituir.toString());
+
+        // Save the symbol word to a file (you can change the file path as needed)
+        try (PrintWriter out = new PrintWriter("symbolWord.txt")) {
+            out.println(SimboloSustituir.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btnJugarActionPerformed
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+>>>>>>> f4484bff8d605dd13dfb2df53dacccd91a25ee2d
         // TODO add your handling code here:
                                                
     // Limpia el estado actual del juego
@@ -352,6 +411,7 @@ public class NewJFrame extends javax.swing.JFrame {
     nivelAgua = 0;
     estadoMuñeco = 0;
 
+<<<<<<< HEAD
     // Actualiza el panel con el estado limpio
     actualizarDibujo();
 
@@ -369,11 +429,27 @@ public class NewJFrame extends javax.swing.JFrame {
     
     // Vuelve a actualizar el panel con la nueva configuración
     actualizarDibujo();
+=======
+    // Revisa si la letra existe en la palabra original
+    StringBuilder ActualizarPalabra = new StringBuilder(symbolWord);
+
+    for (int i = 0; i < originalWord.length(); i++) {
+        if (originalWord.charAt(i) == answerLetter.charAt(0)) {
+            ActualizarPalabra.setCharAt(i, answerLetter.charAt(0)); // Revelar la letra
+        }
+    }
+
+    // Actualiza la  text field con la nueva palabra 
+     txtLestrasEncontradas.setText(ActualizarPalabra.toString());
+     
+    }//GEN-LAST:event_btnIngresarActionPerformed
+>>>>>>> f4484bff8d605dd13dfb2df53dacccd91a25ee2d
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
  // Obtener la palabra secreta y ocultarla con guiones
     palabraSecreta = new String(txtIngresarPalabra.getPassword()).toLowerCase();
     palabraAdivinada = new StringBuilder("_".repeat(palabraSecreta.length()));
@@ -391,6 +467,43 @@ public class NewJFrame extends javax.swing.JFrame {
 
         ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
         ahorcadoPanel.setEstadoMuñeco(2); // Cambia el estado según sea necesario
+=======
+        
+        
+        
+        if (txtIngresarPalabra.isEnabled()) {
+        // si esta habilitado, set text "a"
+        // Subrallado indica que es un password file 
+        // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "a");
+    }   else {
+        // si esta desactivado agregar la letra a en txt ingresar letra
+       //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("a");
+    }
+    }//GEN-LAST:event_btnAActionPerformed
+
+    private void btnDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDActionPerformed
+        // TODO add your handling code here:
+           // Si txt ingresarpalabra es true ingresar a apabra else ingresar a letras
+        
+       if (txtIngresarPalabra.isEnabled()) {
+        // sies  activado, set text to "b"
+        txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "d");
+    } else {
+        // si no esta activado, set text to "b" en txtIngresarLetra
+        //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+        txtIngresarLetra.setText("d");
+    }
+           
+           
+           
+           
+           
+      
+        
+        
+>>>>>>> f4484bff8d605dd13dfb2df53dacccd91a25ee2d
     }//GEN-LAST:event_btnDActionPerformed
 
     private void btnAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAActionPerformed
