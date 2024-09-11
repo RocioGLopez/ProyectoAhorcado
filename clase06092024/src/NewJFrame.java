@@ -1,36 +1,14 @@
-<<<<<<< HEAD
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Graphics; // para inicializar graficos del nivel del agua y muñeco
+import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-=======
-// importar libreia 
-import java.io.PrintWriter;
-//Fuente https://www.geeksforgeeks.org/java-io-printwriter-class-java-set-1/
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-/*
-
- 0
--|- holis soy al que van a colgar  :) palabra de prueba "dad"
-/ \
-
-
-
-
-*/
-
-
->>>>>>> f4484bff8d605dd13dfb2df53dacccd91a25ee2d
 
 /**
- * @author Ruddyard * @author Gabriela p
- 959-23-1409
+ * @author Ruddyard 959-23-1409
  * @author Mishel Loeiza 9959-23-3457
  * @author Rocio
+ * @author Gabriela
  * @author Daniel 
  * private AhorcadoPanel ahorcadoPanel;
  */
@@ -80,7 +58,7 @@ public class NewJFrame extends javax.swing.JFrame {
             dibujarAgua(g);
             dibujarMuneco(g);
         }
-
+// implementacioN de coordenadas 
         private void dibujarAgua(Graphics g) {
             g.setColor(Color.BLUE);
             g.fillRect(0, getHeight() - nivelAgua, getWidth(), nivelAgua);
@@ -135,11 +113,11 @@ public class NewJFrame extends javax.swing.JFrame {
         btnD = new javax.swing.JButton();
         txtLestrasEncontradas = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnIniciarjuego = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtIntentosFallidos = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtIntentosFaltantes = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
@@ -175,7 +153,7 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         btnD.setFont(new java.awt.Font("Viner Hand ITC", 3, 12)); // NOI18N
-        btnD.setText("B");
+        btnD.setText("D");
         btnD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDActionPerformed(evt);
@@ -185,10 +163,10 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Showcard Gothic", 0, 24)); // NOI18N
         jLabel6.setText("JUEGO DE AHORCADO");
 
-        jButton1.setText("INICIAR JUEGO");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnIniciarjuego.setText("INICIAR JUEGO");
+        btnIniciarjuego.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnIniciarjuegoActionPerformed(evt);
             }
         });
 
@@ -259,18 +237,18 @@ public class NewJFrame extends javax.swing.JFrame {
                             .addGroup(colorLayout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtIntentosFaltantes, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(colorLayout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtIntentosFallidos, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(colorLayout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtTotalIngresos, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(colorLayout.createSequentialGroup()
                                 .addGap(65, 65, 65)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnIniciarjuego, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(colorLayout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -313,7 +291,7 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addComponent(txtIngresarPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
+                        .addComponent(btnIniciarjuego)
                         .addGap(46, 46, 46)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -334,11 +312,11 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtIntentosFallidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtIntentosFaltantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2)
@@ -365,43 +343,7 @@ public class NewJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-=======
-    private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
-        // TODO add your handling code here:
-        txtIngresarPalabra.setEnabled(false);
-        txtLestrasEncontradas.setEnabled(false);
-        txtTotalIngresos.setEnabled(false);
-        txtFallos.setEnabled(false);
-        txtIngresarLetra.setEnabled(false);
-        txtLestrasEncontradas.setText("");
-        txtTotalIngresos.setText("");
-        txtFallos.setText("");
-        
-            
-         String palabraOriginal = txtIngresarPalabra.getText();
-          StringBuilder SimboloSustituir = new StringBuilder();
-
-        // Replasar cada letra con  el  simbolo "-"
-        for (int i = 0; i < palabraOriginal.length(); i++) {
-            SimboloSustituir.append("-");
-        }
-       
-
-        // Desplegar el simbolo de la parabra en otro text field 
-        txtLestrasEncontradas.setText(SimboloSustituir.toString());
-
-        // Save the symbol word to a file (you can change the file path as needed)
-        try (PrintWriter out = new PrintWriter("symbolWord.txt")) {
-            out.println(SimboloSustituir.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }//GEN-LAST:event_btnJugarActionPerformed
-
-    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
->>>>>>> f4484bff8d605dd13dfb2df53dacccd91a25ee2d
         // TODO add your handling code here:
                                                
     // Limpia el estado actual del juego
@@ -411,7 +353,6 @@ public class NewJFrame extends javax.swing.JFrame {
     nivelAgua = 0;
     estadoMuñeco = 0;
 
-<<<<<<< HEAD
     // Actualiza el panel con el estado limpio
     actualizarDibujo();
 
@@ -429,87 +370,89 @@ public class NewJFrame extends javax.swing.JFrame {
     
     // Vuelve a actualizar el panel con la nueva configuración
     actualizarDibujo();
-=======
-    // Revisa si la letra existe en la palabra original
-    StringBuilder ActualizarPalabra = new StringBuilder(symbolWord);
-
-    for (int i = 0; i < originalWord.length(); i++) {
-        if (originalWord.charAt(i) == answerLetter.charAt(0)) {
-            ActualizarPalabra.setCharAt(i, answerLetter.charAt(0)); // Revelar la letra
-        }
-    }
-
-    // Actualiza la  text field con la nueva palabra 
-     txtLestrasEncontradas.setText(ActualizarPalabra.toString());
-     
-    }//GEN-LAST:event_btnIngresarActionPerformed
->>>>>>> f4484bff8d605dd13dfb2df53dacccd91a25ee2d
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnIniciarjuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarjuegoActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD
- // Obtener la palabra secreta y ocultarla con guiones
+         // Tomamos la palabra oculata y mandamos a contar cuantos caracteres tiene
+        String palabraOculta = txtIngresarPalabra.getText();
+        int longi = palabraOculta.length();
+        //si sus cantidad de caracteres es mayor a 0 empieza el juego, de lo contrario no pasa nada.
+        if (longi > 0) {
+            txtIngresarPalabra.setEnabled(false);
+            txtLestrasEncontradas.setEnabled(false);
+            txtTotalIngresos.setEnabled(false);
+            txtIntentosFallidos.setEnabled(false);
+            txtIngresarLetra.setEnabled(false);
+            txtLestrasEncontradas.setText("");
+            txtTotalIngresos.setText("");
+            txtIntentosFallidos.setText("");
+
+            String palabraOriginal = txtIngresarPalabra.getText();
+            StringBuilder SimboloSustituir = new StringBuilder();
+
+            // Remplasar cada letra con  el  simbolo "-"
+            for (int i = 0; i < palabraOriginal.length(); i++) {
+                SimboloSustituir.append("-");
+            }
+
+            // Desplegar el simbolo de la parabra en otro text field 
+            txtLestrasEncontradas.setText(SimboloSustituir.toString());
+
+            // Save the symbol word to a file (you can change the file path as needed)
+            try (PrintWriter out = new PrintWriter("symbolWord.txt")) {
+                out.println(SimboloSustituir.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+             JOptionPane.showMessageDialog(this, "¡Juego Iniciado!");
+        }
+        
+        
+        
+        
+ // Obtener la palabra secreta y ocultarla con guiones implementacion de guiones
     palabraSecreta = new String(txtIngresarPalabra.getPassword()).toLowerCase();
     palabraAdivinada = new StringBuilder("_".repeat(palabraSecreta.length()));
     txtLestrasEncontradas.setText(palabraAdivinada.toString());
     intentosFallidos = 0;
     ahorcadoPanel.setNivelAgua(0);
     ahorcadoPanel.setEstadoMuñeco(0);
-    JOptionPane.showMessageDialog(this, "¡Juego Iniciado!");
-    }//GEN-LAST:event_jButton1ActionPerformed
+   
+    }//GEN-LAST:event_btnIniciarjuegoActionPerformed
 
     private void btnDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDActionPerformed
         // TODO add your handling code here:
          // Lógica para manejar la letra "d"
-        txtIngresarLetra.setText("d" + txtIngresarLetra.getText());
+         if (txtIngresarPalabra.isEnabled()) {
+            // si esta habilitado, set text "a"
+            // Subrallado indica que es un password file 
+            // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "D");
+        } else {
+            // si esta desactivado agregar la letra a en txt ingresar letra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("D");
+        }
 
         ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
         ahorcadoPanel.setEstadoMuñeco(2); // Cambia el estado según sea necesario
-=======
-        
-        
-        
-        if (txtIngresarPalabra.isEnabled()) {
-        // si esta habilitado, set text "a"
-        // Subrallado indica que es un password file 
-        // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
-            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "a");
-    }   else {
-        // si esta desactivado agregar la letra a en txt ingresar letra
-       //Para else usar el que borra ya que solo se puede introducir una letra a la vez
-            txtIngresarLetra.setText("a");
-    }
-    }//GEN-LAST:event_btnAActionPerformed
-
-    private void btnDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDActionPerformed
-        // TODO add your handling code here:
-           // Si txt ingresarpalabra es true ingresar a apabra else ingresar a letras
-        
-       if (txtIngresarPalabra.isEnabled()) {
-        // sies  activado, set text to "b"
-        txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "d");
-    } else {
-        // si no esta activado, set text to "b" en txtIngresarLetra
-        //Para else usar el que borra ya que solo se puede introducir una letra a la vez
-        txtIngresarLetra.setText("d");
-    }
-           
-           
-           
-           
-           
-      
-        
-        
->>>>>>> f4484bff8d605dd13dfb2df53dacccd91a25ee2d
     }//GEN-LAST:event_btnDActionPerformed
 
     private void btnAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAActionPerformed
         // TODO add your handling code here:
          // Lógica para manejar la letra "d"
-        txtIngresarLetra.setText("a" + txtIngresarLetra.getText());
+        if (txtIngresarPalabra.isEnabled()) {
+            // si esta habilitado, set text "a"
+            // Subrallado indica que es un password file 
+            // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "a");
+        } else {
+            // si esta desactivado agregar la letra a en txt ingresar letra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("a");
+        };
 
         ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
         ahorcadoPanel.setEstadoMuñeco(3);
@@ -545,20 +488,57 @@ public class NewJFrame extends javax.swing.JFrame {
         intentosFallidos++;
         ahorcadoPanel.setEstadoMuñeco(intentosFallidos);
         
-        // Aumentar el nivel del agua con cada fallo
+        // Aumentar el nivel del  agua al fallo
         int nivelAgua = (getHeight() / maxIntentos) * intentosFallidos;
         ahorcadoPanel.setNivelAgua(nivelAgua);
         
         if (intentosFallidos >= maxIntentos) {
             JOptionPane.showMessageDialog(this, "¡Has perdido! La palabra era: " + palabraSecreta);
             // Aquí puedes reiniciar el juego o desactivar los botones
+            
+            
+            
+            
+             // Panel de confirmación Yes/No
+            int opcion = JOptionPane.showConfirmDialog(this, "¿Quieres intentar de nuevo?", "Confirmación", JOptionPane.YES_NO_OPTION);
+    
+            if (opcion == JOptionPane.NO_OPTION) {
+                 // Cerrar la ventana si se elige "No"
+                this.dispose();  // O System.exit(0) para cerrar toda la aplicación
+            } else if (opcion == JOptionPane.YES_OPTION) {
+                txtIngresarPalabra.setEnabled(true);
+                txtLestrasEncontradas.setEnabled(false);
+                txtTotalIngresos.setEnabled(false);
+                txtIntentosFallidos.setEnabled(false);
+                txtIngresarLetra.setEnabled(false);
+                txtLestrasEncontradas.setText("");
+                txtTotalIngresos.setText("");
+                txtIntentosFallidos.setText("");
+                txtIngresarPalabra.setText("");
+        
+    }
+    
         }
     } else if (palabraAdivinada.toString().equals(palabraSecreta)) {
         JOptionPane.showMessageDialog(this, "¡Felicidades! ¡Has ganado!");
-        // Aquí puedes reiniciar el juego o desactivar los botones
-    }
+       int opcion = JOptionPane.showConfirmDialog(this, "¿Quieres intentar de nuevo?", "Confirmación", JOptionPane.YES_NO_OPTION);
     
-    // Limpiar el campo de texto para la siguiente letra
+            if (opcion == JOptionPane.NO_OPTION) {
+                 // Cerrar la ventana si se elige "No"
+                this.dispose();  // O System.exit(0) para cerrar toda la aplicación
+            } else if (opcion == JOptionPane.YES_OPTION) {
+                txtIngresarPalabra.setEnabled(true);
+                txtLestrasEncontradas.setEnabled(false);
+                txtTotalIngresos.setEnabled(false);
+                txtIntentosFallidos.setEnabled(false);
+                txtIngresarLetra.setEnabled(false);
+                txtLestrasEncontradas.setText("");
+                txtTotalIngresos.setText("");
+                txtIntentosFallidos.setText("");
+                txtIngresarPalabra.setText("");
+        
+    }
+    }
     txtIngresarLetra.setText("");
     }//GEN-LAST:event_btnverificarActionPerformed
 
@@ -601,9 +581,9 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel Ahorcado;
     private javax.swing.JButton btnA;
     private javax.swing.JButton btnD;
+    private javax.swing.JButton btnIniciarjuego;
     private javax.swing.JButton btnverificar;
     private javax.swing.JPanel color;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -615,10 +595,10 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField txtIngresarLetra;
     private javax.swing.JPasswordField txtIngresarPalabra;
+    private javax.swing.JTextField txtIntentosFallidos;
+    private javax.swing.JTextField txtIntentosFaltantes;
     private javax.swing.JTextField txtLestrasEncontradas;
     private javax.swing.JTextField txtTotalIngresos;
     // End of variables declaration//GEN-END:variables
