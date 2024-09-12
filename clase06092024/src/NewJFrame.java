@@ -379,6 +379,10 @@ public class NewJFrame extends javax.swing.JFrame {
     palabraAdivinada = new StringBuilder("_".repeat(palabraSecreta.length()));
     txtLestrasEncontradas.setText(palabraAdivinada.toString());
     intentosFallidos = 0;
+        //Inicializar intentos fallidos
+    
+    fallidos.setText(String.valueOf(intentosFallidos));
+        
     ahorcadoPanel.setNivelAgua(0);
     ahorcadoPanel.setEstadoMuñeco(0);
     JOptionPane.showMessageDialog(this, "¡Juego Iniciado!");
@@ -435,6 +439,9 @@ public class NewJFrame extends javax.swing.JFrame {
         // Aumentar el nivel del  agua al fallo
         int nivelAgua = (getHeight() / maxIntentos) * intentosFallidos;
         ahorcadoPanel.setNivelAgua(nivelAgua);
+
+        //Actualizar el campo de fallidos
+        fallidos.setText(String.valueOf(intentosFallidos));
         
         if (intentosFallidos >= maxIntentos) {
             JOptionPane.showMessageDialog(this, "¡Has perdido! La palabra era: " + palabraSecreta);
