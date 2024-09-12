@@ -1,10 +1,15 @@
 import java.awt.Color;
 import java.awt.Graphics; // para inicializar graficos del nivel del agua y muñeco
 import java.io.PrintWriter;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 /**
+ * @author Cristofer pivaral
  * @author Ruddyard 959-23-1409
  * @author Mishel Loeiza 9959-23-3457
  * @author Rocio
@@ -14,6 +19,8 @@ import javax.swing.JPanel;
  */
 public class NewJFrame extends javax.swing.JFrame {
 
+    UIManager UI;
+    Icon Modificar;
     private AhorcadoPanel ahorcadoPanel; // Referencia global al panel
     
     // Variables relacionadas con el dibujo
@@ -32,6 +39,7 @@ public class NewJFrame extends javax.swing.JFrame {
         ahorcadoPanel = new AhorcadoPanel(); // Inicializa el panel
         Ahorcado.setLayout(new java.awt.BorderLayout());
         Ahorcado.add(ahorcadoPanel); // Añade el panel al contenedor
+        Modificar = new ImageIcon("C:\\Users\\ADMI\\OneDrive\\PROTOTIPO 2 AHOGADO OFICIAL\\ProyectoAhorcado\\clase06092024\\src\\icono.png");
     }
 
     private void actualizarDibujo() {
@@ -119,7 +127,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtIntentosFaltantes = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        salir = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         Ahorcado = new javax.swing.JPanel();
@@ -181,7 +189,12 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("SALIR");
+        salir.setText("SALIR");
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setText("¡NO TE AHORQUES NI TE AHOGUES");
@@ -223,7 +236,7 @@ public class NewJFrame extends javax.swing.JFrame {
                                     .addComponent(jLabel1)))
                             .addGroup(colorLayout.createSequentialGroup()
                                 .addGap(189, 189, 189)
-                                .addComponent(jButton3))
+                                .addComponent(salir))
                             .addGroup(colorLayout.createSequentialGroup()
                                 .addGap(77, 77, 77)
                                 .addComponent(jButton2))
@@ -320,7 +333,7 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2)
-                            .addComponent(jButton3))))
+                            .addComponent(salir))))
                 .addGap(23, 23, 23))
         );
 
@@ -419,6 +432,7 @@ public class NewJFrame extends javax.swing.JFrame {
     intentosFallidos = 0;
     ahorcadoPanel.setNivelAgua(0);
     ahorcadoPanel.setEstadoMuñeco(0);
+         
    
     }//GEN-LAST:event_btnIniciarjuegoActionPerformed
 
@@ -542,6 +556,26 @@ public class NewJFrame extends javax.swing.JFrame {
     txtIngresarLetra.setText("");
     }//GEN-LAST:event_btnverificarActionPerformed
 
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        // TODO add your handling code here:
+        Object UI = null;
+        UIManager.put("OptionPane.background", new Color(211, 211, 211));
+        
+        JPanel panel = new JPanel();
+        panel.setBackground(new Color(211, 211, 211));
+        JLabel label = new JLabel("<html><b style=\"color:red; font-size:16px;\">¿Desea salir del juego?</b></html>");
+        label.setForeground(Color.WHITE);
+        panel.add(label);
+        Icon Modificar = null;
+    
+        
+        int confirmar = JOptionPane.showConfirmDialog(null, panel,
+                "WARNING", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, Modificar);
+        if(JOptionPane.OK_OPTION==confirmar) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_salirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -585,7 +619,6 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnverificar;
     private javax.swing.JPanel color;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -595,6 +628,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton salir;
     private javax.swing.JTextField txtIngresarLetra;
     private javax.swing.JPasswordField txtIngresarPalabra;
     private javax.swing.JTextField txtIntentosFallidos;
