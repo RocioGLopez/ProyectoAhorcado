@@ -126,10 +126,10 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         btnIniciarjuego = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        fallidos = new javax.swing.JTextField();
+        txtfallidos = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtIntentosFaltantes = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        btnReiniciar = new javax.swing.JButton();
         salir = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -188,10 +188,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jLabel8.setText("Cantidad de intentos restantes");
 
-        jButton2.setText("REINICIAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnReiniciar.setText("REINICIAR");
+        btnReiniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnReiniciarActionPerformed(evt);
             }
         });
 
@@ -269,7 +269,7 @@ public class NewJFrame extends javax.swing.JFrame {
                                 .addComponent(salir))
                             .addGroup(colorLayout.createSequentialGroup()
                                 .addGap(77, 77, 77)
-                                .addComponent(jButton2))
+                                .addComponent(btnReiniciar))
                             .addGroup(colorLayout.createSequentialGroup()
                                 .addComponent(txtIngresarLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(41, 41, 41)
@@ -290,7 +290,7 @@ public class NewJFrame extends javax.swing.JFrame {
                             .addGroup(colorLayout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(fallidos, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtfallidos, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(colorLayout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -355,14 +355,14 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(fallidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtfallidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(txtIntentosFaltantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(btnReiniciar)
                     .addComponent(salir))
                 .addGap(23, 23, 23))
             .addGroup(colorLayout.createSequentialGroup()
@@ -394,7 +394,7 @@ public class NewJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
 //        // TODO add your handling code here:
 //
 //        // Limpia el estado actual del juego
@@ -428,14 +428,19 @@ public class NewJFrame extends javax.swing.JFrame {
         txtIntentosFaltantes.setEnabled(false);
         txtIngresarLetra.setEnabled(false);
         txtIntentosFaltantes.setEnabled(false);
-
+        
+        txtIngresarPalabra.setText("");
         txtLestrasEncontradas.setText("");
         txtTotalIngresos.setText("");
-        txtIngresarPalabra.setText("");
+        txtfallidos.setText("");
         txtIntentosFaltantes.setText("");
+       
 
-
-    }//GEN-LAST:event_jButton2ActionPerformed
+        ahorcadoPanel.setNivelAgua(0);
+        ahorcadoPanel.setEstadoMuñeco(0);
+         
+//
+    }//GEN-LAST:event_btnReiniciarActionPerformed
 
     private void btnIniciarjuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarjuegoActionPerformed
         // TODO add your handling code here:
@@ -447,11 +452,11 @@ public class NewJFrame extends javax.swing.JFrame {
             txtIngresarPalabra.setEnabled(false);
             txtLestrasEncontradas.setEnabled(false);
             txtTotalIngresos.setEnabled(false);
-            fallidos.setEnabled(false);
+            txtfallidos.setEnabled(false);
             txtIngresarLetra.setEnabled(false);
             txtLestrasEncontradas.setText("");
             txtTotalIngresos.setText("");
-            fallidos.setText("");
+            txtfallidos.setText("");
             txtIntentosFaltantes.setEnabled(false);
             txtIntentosFaltantes.setText("");
 
@@ -490,7 +495,7 @@ public class NewJFrame extends javax.swing.JFrame {
         txtLestrasEncontradas.setText(palabraAdivinada.toString());
         intentosFallidos = 0;
 
-        fallidos.setText(String.valueOf(intentosFallidos));
+        txtfallidos.setText(String.valueOf(intentosFallidos));
 
         ahorcadoPanel.setNivelAgua(0);
         ahorcadoPanel.setEstadoMuñeco(0);
@@ -567,7 +572,7 @@ public class NewJFrame extends javax.swing.JFrame {
             ahorcadoPanel.setEstadoMuñeco(intentosFallidos);
 
             //Actualizar el campo de fallidos
-            fallidos.setText(String.valueOf(intentosFallidos));
+            txtfallidos.setText(String.valueOf(intentosFallidos));
 
             // Aumentar el nivel del  agua al fallo
             int nivelAgua = (getHeight() / maxIntentos) * intentosFallidos;
@@ -587,11 +592,11 @@ public class NewJFrame extends javax.swing.JFrame {
                     txtIngresarPalabra.setEnabled(true);
                     txtLestrasEncontradas.setEnabled(false);
                     txtTotalIngresos.setEnabled(false);
-                    fallidos.setEnabled(false);
+                    txtfallidos.setEnabled(false);
                     txtIngresarLetra.setEnabled(false);
                     txtLestrasEncontradas.setText("");
                     txtTotalIngresos.setText("");
-                    fallidos.setText("");
+                    txtfallidos.setText("");
                     txtIngresarPalabra.setText("");
 
                 }
@@ -608,11 +613,11 @@ public class NewJFrame extends javax.swing.JFrame {
                 txtIngresarPalabra.setEnabled(true);
                 txtLestrasEncontradas.setEnabled(false);
                 txtTotalIngresos.setEnabled(false);
-                fallidos.setEnabled(false);
+                txtfallidos.setEnabled(false);
                 txtIngresarLetra.setEnabled(false);
                 txtLestrasEncontradas.setText("");
                 txtTotalIngresos.setText("");
-                fallidos.setText("");
+                txtfallidos.setText("");
                 txtIngresarPalabra.setText("");
 
             }
@@ -741,10 +746,9 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnD;
     private javax.swing.JButton btnE;
     private javax.swing.JButton btnIniciarjuego;
+    private javax.swing.JButton btnReiniciar;
     private javax.swing.JButton btnverificar;
     private javax.swing.JPanel color;
-    private javax.swing.JTextField fallidos;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -760,5 +764,6 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtIntentosFaltantes;
     private javax.swing.JTextField txtLestrasEncontradas;
     private javax.swing.JTextField txtTotalIngresos;
+    private javax.swing.JTextField txtfallidos;
     // End of variables declaration//GEN-END:variables
 }
