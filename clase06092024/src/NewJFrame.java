@@ -1,3 +1,4 @@
+
 import java.awt.Color;
 import java.awt.Graphics; // para inicializar graficos del nivel del agua y muñeco
 import java.io.PrintWriter;
@@ -14,15 +15,16 @@ import javax.swing.UIManager;
  * @author Mishel Loeiza 9959-23-3457
  * @author Rocio
  * @author Gabriela
- * @author Daniel 
- * private AhorcadoPanel ahorcadoPanel;
+ * @author Daniel private AhorcadoPanel ahorcadoPanel;
  */
 public class NewJFrame extends javax.swing.JFrame {
 
+    //contador 
+    int contador = 0;
     UIManager UI;
     Icon Modificar;
     private AhorcadoPanel ahorcadoPanel; // Referencia global al panel
-    
+
     // Variables relacionadas con el dibujo
     private int nivelAgua = 0;
     private int estadoMuñeco = 0;
@@ -32,7 +34,6 @@ public class NewJFrame extends javax.swing.JFrame {
     private StringBuilder palabraAdivinada;
     private int intentosFallidos = 4;
     private final int maxIntentos = 4;
-
 
     public NewJFrame() {
         initComponents();
@@ -47,6 +48,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     public class AhorcadoPanel extends JPanel {
+
         private int nivelAgua = 0;
         private int estadoMuñeco = 0;
 
@@ -67,6 +69,7 @@ public class NewJFrame extends javax.swing.JFrame {
             dibujarMuneco(g);
         }
 // implementacioN de coordenadas 
+
         private void dibujarAgua(Graphics g) {
             g.setColor(Color.BLUE);
             g.fillRect(0, getHeight() - nivelAgua, getWidth(), nivelAgua);
@@ -78,7 +81,8 @@ public class NewJFrame extends javax.swing.JFrame {
             int y = getHeight() - nivelAgua - 50;
 
             switch (estadoMuñeco) {
-                case 1 -> g.drawOval(x - 10, y - 20, 20, 20); // Cabeza
+                case 1 ->
+                    g.drawOval(x - 10, y - 20, 20, 20); // Cabeza
                 case 2 -> {
                     g.drawOval(x - 10, y - 20, 20, 20); // Cabeza
                     g.drawLine(x, y, x, y + 30); // Cuerpo
@@ -98,7 +102,6 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         }
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -132,6 +135,9 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         Ahorcado = new javax.swing.JPanel();
         btnverificar = new javax.swing.JButton();
+        btNC = new javax.swing.JButton();
+        btnB = new javax.swing.JButton();
+        btnE = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -206,17 +212,41 @@ public class NewJFrame extends javax.swing.JFrame {
         Ahorcado.setLayout(AhorcadoLayout);
         AhorcadoLayout.setHorizontalGroup(
             AhorcadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
+            .addGap(0, 493, Short.MAX_VALUE)
         );
         AhorcadoLayout.setVerticalGroup(
             AhorcadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         btnverificar.setText("VERIFICAR LETRA");
         btnverificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnverificarActionPerformed(evt);
+            }
+        });
+
+        btNC.setFont(new java.awt.Font("Viner Hand ITC", 3, 12)); // NOI18N
+        btNC.setText("C");
+        btNC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNCActionPerformed(evt);
+            }
+        });
+
+        btnB.setFont(new java.awt.Font("Viner Hand ITC", 3, 12)); // NOI18N
+        btnB.setText("B");
+        btnB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBActionPerformed(evt);
+            }
+        });
+
+        btnE.setFont(new java.awt.Font("Viner Hand ITC", 3, 12)); // NOI18N
+        btnE.setText("E");
+        btnE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEActionPerformed(evt);
             }
         });
 
@@ -244,8 +274,14 @@ public class NewJFrame extends javax.swing.JFrame {
                                 .addComponent(txtIngresarLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(41, 41, 41)
                                 .addComponent(btnA)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnD))
+                                .addGap(12, 12, 12)
+                                .addComponent(btnB)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btNC)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnD)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnE))
                             .addComponent(jLabel2)
                             .addGroup(colorLayout.createSequentialGroup()
                                 .addComponent(jLabel8)
@@ -272,69 +308,71 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addComponent(jLabel6)))
                 .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(colorLayout.createSequentialGroup()
-                        .addGap(103, 103, 103)
+                        .addGap(130, 130, 130)
                         .addComponent(jLabel9)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(colorLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
                         .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(colorLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel10))
-                            .addGroup(colorLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Ahorcado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(26, Short.MAX_VALUE))))
+                                .addGap(26, 26, 26)
+                                .addComponent(Ahorcado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel10))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         colorLayout.setVerticalGroup(
             colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, colorLayout.createSequentialGroup()
-                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, colorLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Ahorcado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, colorLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1)
-                        .addGap(24, 24, 24)
-                        .addComponent(txtIngresarPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnIniciarjuego)
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtIngresarLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnA)
-                            .addComponent(btnD))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnverificar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
-                        .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtLestrasEncontradas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txtTotalIngresos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(txtIntentosFallidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(txtIntentosFaltantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2)
-                            .addComponent(salir))))
+                .addGap(34, 34, 34)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(24, 24, 24)
+                .addComponent(txtIngresarPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnIniciarjuego)
+                .addGap(46, 46, 46)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btNC)
+                        .addComponent(btnB)
+                        .addComponent(btnE)
+                        .addComponent(btnD)
+                        .addComponent(btnA))
+                    .addComponent(txtIngresarLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnverificar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
+                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtLestrasEncontradas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtTotalIngresos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtIntentosFallidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtIntentosFaltantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(salir))
                 .addGap(23, 23, 23))
+            .addGroup(colorLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Ahorcado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -343,7 +381,7 @@ public class NewJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(color, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(color, javax.swing.GroupLayout.PREFERRED_SIZE, 836, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(161, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -358,37 +396,37 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-                                               
-    // Limpia el estado actual del juego
-    palabraSecreta = ""; // Puedes definir una palabra secreta nueva o dejarla vacía para el ingreso del usuario
-    palabraAdivinada = new StringBuilder(); // Limpia la palabra adivinada
-    intentosFallidos = 0;
-    nivelAgua = 0;
-    estadoMuñeco = 0;
 
-    // Actualiza el panel con el estado limpio
-    actualizarDibujo();
+        // Limpia el estado actual del juego
+        palabraSecreta = ""; // Puedes definir una palabra secreta nueva o dejarla vacía para el ingreso del usuario
+        palabraAdivinada = new StringBuilder(); // Limpia la palabra adivinada
+        intentosFallidos = 0;
+        nivelAgua = 0;
+        estadoMuñeco = 0;
 
-    // Muestra un mensaje indicando que el juego ha sido reiniciado
-    JOptionPane.showMessageDialog(this, "Juego reiniciado. Ingresa una nueva palabra.");
+        // Actualiza el panel con el estado limpio
+        actualizarDibujo();
 
-    // Opcional: Permite que el usuario ingrese una nueva palabra
-    // Puedes mostrar un diálogo o realizar otra acción para ingresar la nueva palabra
-    palabraSecreta = JOptionPane.showInputDialog(this, "Ingresa la nueva palabra secreta:");
+        // Muestra un mensaje indicando que el juego ha sido reiniciado
+        JOptionPane.showMessageDialog(this, "Juego reiniciado. Ingresa una nueva palabra.");
 
-    // Actualiza la palabra adivinada con la nueva palabra secreta
-    if (palabraSecreta != null && !palabraSecreta.isEmpty()) {
-        palabraAdivinada = new StringBuilder("_".repeat(palabraSecreta.length()));
-    }
-    
-    // Vuelve a actualizar el panel con la nueva configuración
-    actualizarDibujo();
+        // Opcional: Permite que el usuario ingrese una nueva palabra
+        // Puedes mostrar un diálogo o realizar otra acción para ingresar la nueva palabra
+        palabraSecreta = JOptionPane.showInputDialog(this, "Ingresa la nueva palabra secreta:");
+
+        // Actualiza la palabra adivinada con la nueva palabra secreta
+        if (palabraSecreta != null && !palabraSecreta.isEmpty()) {
+            palabraAdivinada = new StringBuilder("_".repeat(palabraSecreta.length()));
+        }
+
+        // Vuelve a actualizar el panel con la nueva configuración
+        actualizarDibujo();
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnIniciarjuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarjuegoActionPerformed
         // TODO add your handling code here:
-         // Tomamos la palabra oculata y mandamos a contar cuantos caracteres tiene
+        // Tomamos la palabra oculata y mandamos a contar cuantos caracteres tiene
         String palabraOculta = txtIngresarPalabra.getText();
         int longi = palabraOculta.length();
         //si sus cantidad de caracteres es mayor a 0 empieza el juego, de lo contrario no pasa nada.
@@ -419,44 +457,44 @@ public class NewJFrame extends javax.swing.JFrame {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-             JOptionPane.showMessageDialog(this, "¡Juego Iniciado!");
+            JOptionPane.showMessageDialog(this, "¡Juego Iniciado!");
+            contador = 0;
         }
-        
-        
-        
-        
- // Obtener la palabra secreta y ocultarla con guiones implementacion de guiones
-    palabraSecreta = new String(txtIngresarPalabra.getPassword()).toLowerCase();
-    palabraAdivinada = new StringBuilder("_".repeat(palabraSecreta.length()));
-    txtLestrasEncontradas.setText(palabraAdivinada.toString());
-    intentosFallidos = 0;
-    ahorcadoPanel.setNivelAgua(0);
-    ahorcadoPanel.setEstadoMuñeco(0);
-         
-   
+
+        // Obtener la palabra secreta y ocultarla con guiones implementacion de guiones
+        palabraSecreta = new String(txtIngresarPalabra.getPassword()).toLowerCase();
+        palabraAdivinada = new StringBuilder("_".repeat(palabraSecreta.length()));
+        txtLestrasEncontradas.setText(palabraAdivinada.toString());
+        intentosFallidos = 0;
+        ahorcadoPanel.setNivelAgua(0);
+        ahorcadoPanel.setEstadoMuñeco(0);
+
+
     }//GEN-LAST:event_btnIniciarjuegoActionPerformed
 
     private void btnDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDActionPerformed
         // TODO add your handling code here:
-         // Lógica para manejar la letra "d"
-         if (txtIngresarPalabra.isEnabled()) {
+        // Lógica para manejar la letra "d"
+        if (txtIngresarPalabra.isEnabled()) {
             // si esta habilitado, set text "a"
             // Subrallado indica que es un password file 
             // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
-            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "D");
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "d");
         } else {
             // si esta desactivado agregar la letra a en txt ingresar letra
             //Para else usar el que borra ya que solo se puede introducir una letra a la vez
-            txtIngresarLetra.setText("D");
+            txtIngresarLetra.setText("d");
         }
 
         ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
         ahorcadoPanel.setEstadoMuñeco(2); // Cambia el estado según sea necesario
+        contador++;
+        txtTotalIngresos.setText(String.valueOf(contador));
     }//GEN-LAST:event_btnDActionPerformed
 
     private void btnAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAActionPerformed
         // TODO add your handling code here:
-         // Lógica para manejar la letra "d"
+        // Lógica para manejar la letra "d"
         if (txtIngresarPalabra.isEnabled()) {
             // si esta habilitado, set text "a"
             // Subrallado indica que es un password file 
@@ -470,6 +508,8 @@ public class NewJFrame extends javax.swing.JFrame {
 
         ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
         ahorcadoPanel.setEstadoMuñeco(3);
+        contador++;
+        txtTotalIngresos.setText(String.valueOf(contador));
     }//GEN-LAST:event_btnAActionPerformed
 
     private void txtIngresarLetraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngresarLetraActionPerformed
@@ -477,47 +517,65 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIngresarLetraActionPerformed
 
     private void btnverificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverificarActionPerformed
-            // Obtener la letra ingresada por el usuario
-    String letraIngresada = txtIngresarLetra.getText().toLowerCase();
-    
-    // Validar que solo se ingrese una letra y que no esté vacía
-    if (letraIngresada.length() != 1) {
-        JOptionPane.showMessageDialog(this, "Por favor ingrese una letra válida.");
-        return;
-    }
-    
-    // Verificar si la letra está en la palabra secreta
-    boolean letraEncontrada = false;
-    for (int i = 0; i < palabraSecreta.length(); i++) {
-        if (palabraSecreta.charAt(i) == letraIngresada.charAt(0)) {
-            palabraAdivinada.setCharAt(i, letraIngresada.charAt(0));
-            letraEncontrada = true;
+        // Obtener la letra ingresada por el usuario
+        String letraIngresada = txtIngresarLetra.getText().toLowerCase();
+
+        // Validar que solo se ingrese una letra y que no esté vacía
+        if (letraIngresada.length() != 1) {
+            JOptionPane.showMessageDialog(this, "Por favor ingrese una letra válida.");
+            return;
         }
-    }
 
-    // Actualizar el campo de letras encontradas
-    txtLestrasEncontradas.setText(palabraAdivinada.toString());
+        // Verificar si la letra está en la palabra secreta
+        boolean letraEncontrada = false;
+        for (int i = 0; i < palabraSecreta.length(); i++) {
+            if (palabraSecreta.charAt(i) == letraIngresada.charAt(0)) {
+                palabraAdivinada.setCharAt(i, letraIngresada.charAt(0));
+                letraEncontrada = true;
+            }
+        }
 
-    if (!letraEncontrada) {
-        intentosFallidos++;
-        ahorcadoPanel.setEstadoMuñeco(intentosFallidos);
-        
-        // Aumentar el nivel del  agua al fallo
-        int nivelAgua = (getHeight() / maxIntentos) * intentosFallidos;
-        ahorcadoPanel.setNivelAgua(nivelAgua);
-        
-        if (intentosFallidos >= maxIntentos) {
-            JOptionPane.showMessageDialog(this, "¡Has perdido! La palabra era: " + palabraSecreta);
-            // Aquí puedes reiniciar el juego o desactivar los botones
-            
-            
-            
-            
-             // Panel de confirmación Yes/No
+        // Actualizar el campo de letras encontradas
+        txtLestrasEncontradas.setText(palabraAdivinada.toString());
+
+        if (!letraEncontrada) {
+            intentosFallidos++;
+            ahorcadoPanel.setEstadoMuñeco(intentosFallidos);
+
+            // Aumentar el nivel del  agua al fallo
+            int nivelAgua = (getHeight() / maxIntentos) * intentosFallidos;
+            ahorcadoPanel.setNivelAgua(nivelAgua);
+
+            if (intentosFallidos >= maxIntentos) {
+                JOptionPane.showMessageDialog(this, "¡Has perdido! La palabra era: " + palabraSecreta);
+                // Aquí puedes reiniciar el juego o desactivar los botones
+
+                // Panel de confirmación Yes/No
+                int opcion = JOptionPane.showConfirmDialog(this, "¿Quieres intentar de nuevo?", "Confirmación", JOptionPane.YES_NO_OPTION);
+
+                if (opcion == JOptionPane.NO_OPTION) {
+                    // Cerrar la ventana si se elige "No"
+                    this.dispose();  // O System.exit(0) para cerrar toda la aplicación
+                } else if (opcion == JOptionPane.YES_OPTION) {
+                    txtIngresarPalabra.setEnabled(true);
+                    txtLestrasEncontradas.setEnabled(false);
+                    txtTotalIngresos.setEnabled(false);
+                    txtIntentosFallidos.setEnabled(false);
+                    txtIngresarLetra.setEnabled(false);
+                    txtLestrasEncontradas.setText("");
+                    txtTotalIngresos.setText("");
+                    txtIntentosFallidos.setText("");
+                    txtIngresarPalabra.setText("");
+
+                }
+
+            }
+        } else if (palabraAdivinada.toString().equals(palabraSecreta)) {
+            JOptionPane.showMessageDialog(this, "¡Felicidades! ¡Has ganado!");
             int opcion = JOptionPane.showConfirmDialog(this, "¿Quieres intentar de nuevo?", "Confirmación", JOptionPane.YES_NO_OPTION);
-    
+
             if (opcion == JOptionPane.NO_OPTION) {
-                 // Cerrar la ventana si se elige "No"
+                // Cerrar la ventana si se elige "No"
                 this.dispose();  // O System.exit(0) para cerrar toda la aplicación
             } else if (opcion == JOptionPane.YES_OPTION) {
                 txtIngresarPalabra.setEnabled(true);
@@ -529,52 +587,89 @@ public class NewJFrame extends javax.swing.JFrame {
                 txtTotalIngresos.setText("");
                 txtIntentosFallidos.setText("");
                 txtIngresarPalabra.setText("");
-        
-    }
-    
+
+            }
         }
-    } else if (palabraAdivinada.toString().equals(palabraSecreta)) {
-        JOptionPane.showMessageDialog(this, "¡Felicidades! ¡Has ganado!");
-       int opcion = JOptionPane.showConfirmDialog(this, "¿Quieres intentar de nuevo?", "Confirmación", JOptionPane.YES_NO_OPTION);
-    
-            if (opcion == JOptionPane.NO_OPTION) {
-                 // Cerrar la ventana si se elige "No"
-                this.dispose();  // O System.exit(0) para cerrar toda la aplicación
-            } else if (opcion == JOptionPane.YES_OPTION) {
-                txtIngresarPalabra.setEnabled(true);
-                txtLestrasEncontradas.setEnabled(false);
-                txtTotalIngresos.setEnabled(false);
-                txtIntentosFallidos.setEnabled(false);
-                txtIngresarLetra.setEnabled(false);
-                txtLestrasEncontradas.setText("");
-                txtTotalIngresos.setText("");
-                txtIntentosFallidos.setText("");
-                txtIngresarPalabra.setText("");
-        
-    }
-    }
-    txtIngresarLetra.setText("");
+        txtIngresarLetra.setText("");
     }//GEN-LAST:event_btnverificarActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         // TODO add your handling code here:
         Object UI = null;
         UIManager.put("OptionPane.background", new Color(211, 211, 211));
-        
+
         JPanel panel = new JPanel();
         panel.setBackground(new Color(211, 211, 211));
         JLabel label = new JLabel("<html><b style=\"color:red; font-size:16px;\">¿Desea salir del juego?</b></html>");
         label.setForeground(Color.WHITE);
         panel.add(label);
         Icon Modificar = null;
-    
-        
+
         int confirmar = JOptionPane.showConfirmDialog(null, panel,
                 "WARNING", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, Modificar);
-        if(JOptionPane.OK_OPTION==confirmar) {
+        if (JOptionPane.OK_OPTION == confirmar) {
             System.exit(0);
         }
     }//GEN-LAST:event_salirActionPerformed
+
+    private void btNCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNCActionPerformed
+ // TODO add your handling code here:
+        // Lógica para manejar la letra "d"
+        if (txtIngresarPalabra.isEnabled()) {
+            // si esta habilitado, set text "a"
+            // Subrallado indica que es un password file 
+            // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "c");
+        } else {
+            // si esta desactivado agregar la letra a en txt ingresar letra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("c");
+        };
+
+        ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
+        ahorcadoPanel.setEstadoMuñeco(3);
+        contador++;
+        txtTotalIngresos.setText(String.valueOf(contador));        // TODO add your handling code here:
+    }//GEN-LAST:event_btNCActionPerformed
+
+    private void btnBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBActionPerformed
+ // TODO add your handling code here:
+        // Lógica para manejar la letra "d"
+        if (txtIngresarPalabra.isEnabled()) {
+            // si esta habilitado, set text "a"
+            // Subrallado indica que es un password file 
+            // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "b");
+        } else {
+            // si esta desactivado agregar la letra a en txt ingresar letra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("b");
+        };
+
+        ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
+        ahorcadoPanel.setEstadoMuñeco(3);
+        contador++;
+        txtTotalIngresos.setText(String.valueOf(contador));    }//GEN-LAST:event_btnBActionPerformed
+
+    private void btnEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEActionPerformed
+ // TODO add your handling code here:
+        // Lógica para manejar la letra "d"
+        if (txtIngresarPalabra.isEnabled()) {
+            // si esta habilitado, set text "a"
+            // Subrallado indica que es un password file 
+            // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "e");
+        } else {
+            // si esta desactivado agregar la letra a en txt ingresar letra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("e");
+        };
+
+        ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
+        ahorcadoPanel.setEstadoMuñeco(3);
+        contador++;
+        txtTotalIngresos.setText(String.valueOf(contador));        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEActionPerformed
 
     /**
      * @param args the command line arguments
@@ -613,8 +708,11 @@ public class NewJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Ahorcado;
+    private javax.swing.JButton btNC;
     private javax.swing.JButton btnA;
+    private javax.swing.JButton btnB;
     private javax.swing.JButton btnD;
+    private javax.swing.JButton btnE;
     private javax.swing.JButton btnIniciarjuego;
     private javax.swing.JButton btnverificar;
     private javax.swing.JPanel color;
