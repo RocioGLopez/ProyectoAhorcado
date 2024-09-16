@@ -559,7 +559,7 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
         palabraAdivinada = new StringBuilder("_".repeat(palabraSecreta.length()));
         txtLestrasEncontradas.setText(palabraAdivinada.toString());
         intentosFallidos = 0;
-
+//inicializacion de intentos fallidos contador
         txtfallidos.setText(String.valueOf(intentosFallidos));
 
         ahorcadoPanel.setNivelAgua(0);
