@@ -503,7 +503,7 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
 
         ahorcadoPanel.setNivelAgua(0);
         ahorcadoPanel.setEstadoMuñeco(0);
-         
+        contador=0;
 //
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
