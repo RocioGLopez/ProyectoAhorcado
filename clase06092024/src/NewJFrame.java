@@ -583,7 +583,6 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
         ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
         ahorcadoPanel.setEstadoMuñeco(2); // Cambia el estado según sea necesario
         contador++;
-        txtTotalIngresos.setText(String.valueOf(contador));
     }//GEN-LAST:event_btnDActionPerformed
 
     private void btnAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAActionPerformed
@@ -603,7 +602,7 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
         ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
         ahorcadoPanel.setEstadoMuñeco(3);
         contador++;
-        txtTotalIngresos.setText(String.valueOf(contador));
+        
     }//GEN-LAST:event_btnAActionPerformed
 
     private void txtIngresarLetraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngresarLetraActionPerformed
@@ -612,6 +611,7 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
 
     private void btnverificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverificarActionPerformed
        // Obtener la letra ingresada por el usuario 
+    txtTotalIngresos.setText(String.valueOf(contador));  
                                             
     // Obtener la letra ingresada por el usuario 
     String letraIngresada = txtIngresarLetra.getText().toLowerCase();
@@ -696,7 +696,7 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
         ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
         ahorcadoPanel.setEstadoMuñeco(3);
         contador++;
-        txtTotalIngresos.setText(String.valueOf(contador));        // TODO add your handling code here:
+        //txtTotalIngresos.setText(String.valueOf(contador));        // TODO add your handling code here:
     }//GEN-LAST:event_btNCActionPerformed
 
     private void btnBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBActionPerformed
@@ -735,7 +735,6 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
         ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
         ahorcadoPanel.setEstadoMuñeco(3);
         contador++;
-        txtTotalIngresos.setText(String.valueOf(contador));        // TODO add your handling code here:
     }//GEN-LAST:event_btnEActionPerformed
 
     private void txtIntentosFaltantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIntentosFaltantesActionPerformed
@@ -760,7 +759,6 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
         ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
         ahorcadoPanel.setEstadoMuñeco(4);
         contador++;
-        txtTotalIngresos.setText(String.valueOf(contador));
     }//GEN-LAST:event_btnFActionPerformed
 
     private void btnGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGActionPerformed
@@ -781,7 +779,6 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
         ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
         ahorcadoPanel.setEstadoMuñeco(4);
         contador++;
-        txtTotalIngresos.setText(String.valueOf(contador));        // TODO add your handling code here:
     
     }//GEN-LAST:event_btnGActionPerformed
 
@@ -802,7 +799,6 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
         ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
         ahorcadoPanel.setEstadoMuñeco(2);
         contador++;
-        txtTotalIngresos.setText(String.valueOf(contador));
     }//GEN-LAST:event_btnHActionPerformed
 
     private void btnIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIActionPerformed
@@ -822,7 +818,6 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
         ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
         ahorcadoPanel.setEstadoMuñeco(3);
         contador++;
-        txtTotalIngresos.setText(String.valueOf(contador));
     }//GEN-LAST:event_btnIActionPerformed
 
     private void btnJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJActionPerformed
@@ -842,7 +837,6 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
         ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
         ahorcadoPanel.setEstadoMuñeco(1);
         contador++;
-        txtTotalIngresos.setText(String.valueOf(contador));
     }//GEN-LAST:event_btnJActionPerformed
 
     private void txtTotalIngresosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalIngresosActionPerformed
