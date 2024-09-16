@@ -32,8 +32,8 @@ public class NewJFrame extends javax.swing.JFrame {
     // Variables globales del juego
     private String palabraSecreta;
     private StringBuilder palabraAdivinada;
-    private int intentosFallidos = 4;
-    private final int maxIntentos = 4;
+    private int intentosFallidos = 3;
+    private final int maxIntentos = 3;
 
     public NewJFrame() {
         initComponents();
@@ -396,32 +396,8 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
 //        // TODO add your handling code here:
-//
-//        // Limpia el estado actual del juego
-//        palabraSecreta = ""; // Puedes definir una palabra secreta nueva o dejarla vacía para el ingreso del usuario
-//        palabraAdivinada = new StringBuilder(); // Limpia la palabra adivinada
-//        intentosFallidos = 0;
-//        nivelAgua = 0;
-//        estadoMuñeco = 0;
-//
-//        // Actualiza el panel con el estado limpio
-//        actualizarDibujo();
-//
-//        // Muestra un mensaje indicando que el juego ha sido reiniciado
-//        JOptionPane.showMessageDialog(this, "Juego reiniciado. Ingresa una nueva palabra.");
-//
-//        // Opcional: Permite que el usuario ingrese una nueva palabra
-//        // Puedes mostrar un diálogo o realizar otra acción para ingresar la nueva palabra
-//        palabraSecreta = JOptionPane.showInputDialog(this, "Ingresa la nueva palabra secreta:");
-//
-//        // Actualiza la palabra adivinada con la nueva palabra secreta
-//        if (palabraSecreta != null && !palabraSecreta.isEmpty()) {
-//            palabraAdivinada = new StringBuilder("_".repeat(palabraSecreta.length()));
-//        }
-//
-//        // Vuelve a actualizar el panel con la nueva configuración
-//        actualizarDibujo();
 
+JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
         txtIngresarPalabra.setEnabled(true);
         txtLestrasEncontradas.setEnabled(false);
         txtTotalIngresos.setEnabled(false);
