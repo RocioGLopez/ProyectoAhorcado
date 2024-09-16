@@ -32,7 +32,7 @@ public class NewJFrame extends javax.swing.JFrame {
     // Variables globales del juego
     private String palabraSecreta;
     private StringBuilder palabraAdivinada;
-    private int intentosFallidos = 3;
+    private int intentosFallidos = 3;//restricciòn de intentos fallidos
     private final int maxIntentos = 3;
 
     public NewJFrame() {
