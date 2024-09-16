@@ -522,83 +522,46 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
     }//GEN-LAST:event_txtIngresarLetraActionPerformed
 
     private void btnverificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverificarActionPerformed
-        // Obtener la letra ingresada por el usuario
-        String letraIngresada = txtIngresarLetra.getText().toLowerCase();
-
-        // Validar que solo se ingrese una letra y que no esté vacía
-        if (letraIngresada.length() != 1) {
-            JOptionPane.showMessageDialog(this, "Por favor ingrese una letra válida.");
-            return;
+       // Obtener la letra ingresada por el usuario 
+    String letraIngresada = txtIngresarLetra.getText().toLowerCase();
+    
+    // Validar que solo se ingrese una letra y que no esté vacía
+    if (letraIngresada.length() != 1) {
+        JOptionPane.showMessageDialog(this, "Por favor ingrese una letra válida.");
+        return;
+    }
+    
+    // Verificar si la letra está en la palabra secreta
+    boolean letraEncontrada = false;
+    for (int i = 0; i < palabraSecreta.length(); i++) {
+        if (palabraSecreta.charAt(i) == letraIngresada.charAt(0)) {
+            palabraAdivinada.setCharAt(i, letraIngresada.charAt(0));
+            letraEncontrada = true;
         }
+    }
 
-        // Verificar si la letra está en la palabra secreta
-        boolean letraEncontrada = false;
-        for (int i = 0; i < palabraSecreta.length(); i++) {
-            if (palabraSecreta.charAt(i) == letraIngresada.charAt(0)) {
-                palabraAdivinada.setCharAt(i, letraIngresada.charAt(0));
-                letraEncontrada = true;
-            }
+    // Actualizar el campo de letras encontradas
+    txtLestrasEncontradas.setText(palabraAdivinada.toString());
+
+    if (!letraEncontrada) {
+        intentosFallidos++;
+        ahorcadoPanel.setEstadoMuñeco(intentosFallidos);
+        
+        // Aumentar el nivel del agua con cada fallo
+        int nivelAgua = (getHeight() / maxIntentos) * intentosFallidos;
+        ahorcadoPanel.setNivelAgua(nivelAgua);
+        
+        if (intentosFallidos >= maxIntentos) {
+            JOptionPane.showMessageDialog(this, "¡Has perdido! La palabra era: " + palabraSecreta);
+            // Aquí puedes reiniciar el juego o desactivar los botones
         }
-
-        // Actualizar el campo de letras encontradas
-        txtLestrasEncontradas.setText(palabraAdivinada.toString());
-
-        if (!letraEncontrada) {
-            intentosFallidos++;
-            ahorcadoPanel.setEstadoMuñeco(intentosFallidos);
-
-            //Actualizar el campo de fallidos
-            txtfallidos.setText(String.valueOf(intentosFallidos));
-
-            // Aumentar el nivel del  agua al fallo
-            int nivelAgua = (getHeight() / maxIntentos) * intentosFallidos;
-            ahorcadoPanel.setNivelAgua(nivelAgua);
-
-            if (intentosFallidos >= maxIntentos) {
-                JOptionPane.showMessageDialog(this, "¡Has perdido! La palabra era: " + palabraSecreta);
-                // Aquí puedes reiniciar el juego o desactivar los botones
-
-                // Panel de confirmación Yes/No
-                int opcion = JOptionPane.showConfirmDialog(this, "¿Quieres intentar de nuevo?", "Confirmación", JOptionPane.YES_NO_OPTION);
-
-                if (opcion == JOptionPane.NO_OPTION) {
-                    // Cerrar la ventana si se elige "No"
-                    this.dispose();  // O System.exit(0) para cerrar toda la aplicación
-                } else if (opcion == JOptionPane.YES_OPTION) {
-                    txtIngresarPalabra.setEnabled(true);
-                    txtLestrasEncontradas.setEnabled(false);
-                    txtTotalIngresos.setEnabled(false);
-                    txtfallidos.setEnabled(false);
-                    txtIngresarLetra.setEnabled(false);
-                    txtLestrasEncontradas.setText("");
-                    txtTotalIngresos.setText("");
-                    txtfallidos.setText("");
-                    txtIngresarPalabra.setText("");
-
-                }
-
-            }
-        } else if (palabraAdivinada.toString().equals(palabraSecreta)) {
-            JOptionPane.showMessageDialog(this, "¡Felicidades! ¡Has ganado!");
-            int opcion = JOptionPane.showConfirmDialog(this, "¿Quieres intentar de nuevo?", "Confirmación", JOptionPane.YES_NO_OPTION);
-
-            if (opcion == JOptionPane.NO_OPTION) {
-                // Cerrar la ventana si se elige "No"
-                this.dispose();  // O System.exit(0) para cerrar toda la aplicación
-            } else if (opcion == JOptionPane.YES_OPTION) {
-                txtIngresarPalabra.setEnabled(true);
-                txtLestrasEncontradas.setEnabled(false);
-                txtTotalIngresos.setEnabled(false);
-                txtfallidos.setEnabled(false);
-                txtIngresarLetra.setEnabled(false);
-                txtLestrasEncontradas.setText("");
-                txtTotalIngresos.setText("");
-                txtfallidos.setText("");
-                txtIngresarPalabra.setText("");
-
-            }
-        }
-        txtIngresarLetra.setText("");
+    } else if (palabraAdivinada.toString().equals(palabraSecreta)) {
+        JOptionPane.showMessageDialog(this, "¡Felicidades! ¡Has ganado!");
+        // Aquí puedes reiniciar el juego o desactivar los botones
+    }
+    
+    // Limpiar el campo de texto para la siguiente letra
+    txtIngresarLetra.setText("");
     }//GEN-LAST:event_btnverificarActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
