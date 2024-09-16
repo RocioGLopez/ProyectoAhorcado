@@ -138,6 +138,12 @@ public class NewJFrame extends javax.swing.JFrame {
         btNC = new javax.swing.JButton();
         btnB = new javax.swing.JButton();
         btnE = new javax.swing.JButton();
+        btnF = new javax.swing.JButton();
+        btnG = new javax.swing.JButton();
+        btnH = new javax.swing.JButton();
+        btnI = new javax.swing.JButton();
+        btnJ = new javax.swing.JButton();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -157,6 +163,12 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel3.setText("Letras encontradas");
 
         jLabel4.setText("cantidad de letras ingresadas");
+
+        txtTotalIngresos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTotalIngresosActionPerformed(evt);
+            }
+        });
 
         btnA.setFont(new java.awt.Font("Viner Hand ITC", 3, 12)); // NOI18N
         btnA.setText("A");
@@ -187,6 +199,12 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel7.setText("Cantidad de intentos Fallidos");
 
         jLabel8.setText("Cantidad de intentos restantes");
+
+        txtIntentosFaltantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIntentosFaltantesActionPerformed(evt);
+            }
+        });
 
         btnReiniciar.setText("REINICIAR");
         btnReiniciar.addActionListener(new java.awt.event.ActionListener() {
@@ -250,6 +268,46 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnF.setFont(new java.awt.Font("Viner Hand ITC", 3, 12)); // NOI18N
+        btnF.setText("F");
+        btnF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFActionPerformed(evt);
+            }
+        });
+
+        btnG.setFont(new java.awt.Font("Viner Hand ITC", 3, 12)); // NOI18N
+        btnG.setText("G");
+        btnG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGActionPerformed(evt);
+            }
+        });
+
+        btnH.setFont(new java.awt.Font("Viner Hand ITC", 3, 12)); // NOI18N
+        btnH.setText("H");
+        btnH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHActionPerformed(evt);
+            }
+        });
+
+        btnI.setFont(new java.awt.Font("Viner Hand ITC", 3, 12)); // NOI18N
+        btnI.setText("I");
+        btnI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIActionPerformed(evt);
+            }
+        });
+
+        btnJ.setFont(new java.awt.Font("Viner Hand ITC", 3, 12)); // NOI18N
+        btnJ.setText("J");
+        btnJ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout colorLayout = new javax.swing.GroupLayout(color);
         color.setLayout(colorLayout);
         colorLayout.setHorizontalGroup(
@@ -270,18 +328,6 @@ public class NewJFrame extends javax.swing.JFrame {
                             .addGroup(colorLayout.createSequentialGroup()
                                 .addGap(77, 77, 77)
                                 .addComponent(btnReiniciar))
-                            .addGroup(colorLayout.createSequentialGroup()
-                                .addComponent(txtIngresarLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41)
-                                .addComponent(btnA)
-                                .addGap(12, 12, 12)
-                                .addComponent(btnB)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btNC)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnD)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnE))
                             .addComponent(jLabel2)
                             .addGroup(colorLayout.createSequentialGroup()
                                 .addComponent(jLabel8)
@@ -302,17 +348,49 @@ public class NewJFrame extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtLestrasEncontradas, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnverificar)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, colorLayout.createSequentialGroup()
+                                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, colorLayout.createSequentialGroup()
+                                        .addComponent(txtIngresarLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(41, 41, 41)
+                                        .addComponent(btnA)
+                                        .addGap(12, 12, 12))
+                                    .addGroup(colorLayout.createSequentialGroup()
+                                        .addComponent(btnverificar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(3, 3, 3)))
+                                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(colorLayout.createSequentialGroup()
+                                        .addComponent(btnB)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btNC)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnD)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnF))
+                                    .addGroup(colorLayout.createSequentialGroup()
+                                        .addComponent(btnI)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnJ)))
+                                .addGap(3, 3, 3)))
+                        .addComponent(btnG))
                     .addGroup(colorLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(jLabel6)))
+                        .addComponent(jLabel6))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, colorLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(1, 1, 1)
                 .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(colorLayout.createSequentialGroup()
                         .addGap(130, 130, 130)
                         .addComponent(jLabel9)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(colorLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
+                        .addGap(5, 5, 5)
+                        .addComponent(btnH)
+                        .addGap(19, 19, 19)
                         .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(colorLayout.createSequentialGroup()
                                 .addGap(26, 26, 26)
@@ -335,16 +413,27 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btNC)
-                        .addComponent(btnB)
-                        .addComponent(btnE)
-                        .addComponent(btnD)
-                        .addComponent(btnA))
-                    .addComponent(txtIngresarLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnverificar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
+                    .addGroup(colorLayout.createSequentialGroup()
+                        .addComponent(txtIngresarLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnverificar)
+                        .addGap(78, 78, 78)
+                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(colorLayout.createSequentialGroup()
+                        .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btNC)
+                            .addComponent(btnB)
+                            .addComponent(btnE)
+                            .addComponent(btnD)
+                            .addComponent(btnA)
+                            .addComponent(btnF)
+                            .addComponent(btnG)
+                            .addComponent(btnH))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnI)
+                            .addComponent(btnJ))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                 .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtLestrasEncontradas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
@@ -523,6 +612,8 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
 
     private void btnverificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverificarActionPerformed
        // Obtener la letra ingresada por el usuario 
+                                            
+    // Obtener la letra ingresada por el usuario 
     String letraIngresada = txtIngresarLetra.getText().toLowerCase();
     
     // Validar que solo se ingrese una letra y que no esté vacía
@@ -551,13 +642,18 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
         int nivelAgua = (getHeight() / maxIntentos) * intentosFallidos;
         ahorcadoPanel.setNivelAgua(nivelAgua);
         
+        // Actualizar el campo de intentos fallidos
+        txtfallidos.setText(String.valueOf(intentosFallidos));
+        
         if (intentosFallidos >= maxIntentos) {
             JOptionPane.showMessageDialog(this, "¡Has perdido! La palabra era: " + palabraSecreta);
-            // Aquí puedes reiniciar el juego o desactivar los botones
+            // Cerrar la ventana después de perder
+            this.dispose();  // O System.exit(0) para cerrar toda la aplicación
         }
     } else if (palabraAdivinada.toString().equals(palabraSecreta)) {
         JOptionPane.showMessageDialog(this, "¡Felicidades! ¡Has ganado!");
-        // Aquí puedes reiniciar el juego o desactivar los botones
+        // Cerrar la ventana después de ganar
+        this.dispose();  // O System.exit(0) para cerrar toda la aplicación
     }
     
     // Limpiar el campo de texto para la siguiente letra
@@ -642,6 +738,117 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
         txtTotalIngresos.setText(String.valueOf(contador));        // TODO add your handling code here:
     }//GEN-LAST:event_btnEActionPerformed
 
+    private void txtIntentosFaltantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIntentosFaltantesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIntentosFaltantesActionPerformed
+
+    private void btnFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFActionPerformed
+        // TODO add your handling code here:
+      
+        // Lógica para manejar la letra "f"
+        if (txtIngresarPalabra.isEnabled()) {
+            // si esta habilitado, set text "a"
+            // Subrallado indica que es un password file 
+            // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "f");
+        } else {
+            // si esta desactivado agregar la letra a en txt ingresar letra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("f");
+        };
+
+        ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
+        ahorcadoPanel.setEstadoMuñeco(4);
+        contador++;
+        txtTotalIngresos.setText(String.valueOf(contador));
+    }//GEN-LAST:event_btnFActionPerformed
+
+    private void btnGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGActionPerformed
+        // TODO add your handling code here:
+         
+        // Lógica para manejar la letra "g"
+        if (txtIngresarPalabra.isEnabled()) {
+            // si esta habilitado, set text "a"
+            // Subrallado indica que es un password file 
+            // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "g");
+        } else {
+            // si esta desactivado agregar la letra a en txt ingresar letra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("g");
+        };
+
+        ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
+        ahorcadoPanel.setEstadoMuñeco(4);
+        contador++;
+        txtTotalIngresos.setText(String.valueOf(contador));        // TODO add your handling code here:
+    
+    }//GEN-LAST:event_btnGActionPerformed
+
+    private void btnHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHActionPerformed
+        // TODO add your handling code here: 
+        // Lógica para manejar la letra "h"
+        if (txtIngresarPalabra.isEnabled()) {
+            // si esta habilitado, set text "h"
+            // Subrallado indica que es un password file 
+            // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "h");
+        } else {
+            // si esta desactivado agregar la letra a en txt ingresar letra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("h");
+        };
+
+        ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
+        ahorcadoPanel.setEstadoMuñeco(2);
+        contador++;
+        txtTotalIngresos.setText(String.valueOf(contador));
+    }//GEN-LAST:event_btnHActionPerformed
+
+    private void btnIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIActionPerformed
+        // TODO add your handling code here: 
+        // Lógica para manejar la letra "i"
+        if (txtIngresarPalabra.isEnabled()) {
+            // si esta habilitado, set text "a"
+            // Subrallado indica que es un password file 
+            // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "i");
+        } else {
+            // si esta desactivado agregar la letra a en txt ingresar letra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("i");
+        };
+
+        ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
+        ahorcadoPanel.setEstadoMuñeco(3);
+        contador++;
+        txtTotalIngresos.setText(String.valueOf(contador));
+    }//GEN-LAST:event_btnIActionPerformed
+
+    private void btnJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJActionPerformed
+        // TODO add your handling code here: 
+        // Lógica para manejar la letra "j"
+        if (txtIngresarPalabra.isEnabled()) {
+            // si esta habilitado, set text "j"
+            // Subrallado indica que es un password file 
+            // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "j");
+        } else {
+            // si esta desactivado agregar la letra a en txt ingresar letra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("j");
+        };
+
+        ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
+        ahorcadoPanel.setEstadoMuñeco(1);
+        contador++;
+        txtTotalIngresos.setText(String.valueOf(contador));
+    }//GEN-LAST:event_btnJActionPerformed
+
+    private void txtTotalIngresosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalIngresosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTotalIngresosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -684,10 +891,16 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
     private javax.swing.JButton btnB;
     private javax.swing.JButton btnD;
     private javax.swing.JButton btnE;
+    private javax.swing.JButton btnF;
+    private javax.swing.JButton btnG;
+    private javax.swing.JButton btnH;
+    private javax.swing.JButton btnI;
     private javax.swing.JButton btnIniciarjuego;
+    private javax.swing.JButton btnJ;
     private javax.swing.JButton btnReiniciar;
     private javax.swing.JButton btnverificar;
     private javax.swing.JPanel color;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
