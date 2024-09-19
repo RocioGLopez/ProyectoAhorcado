@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics; // para inicializar graficos del nivel del agua y muñeco
 import java.io.PrintWriter;
 import javax.swing.Icon;
@@ -10,12 +11,14 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 
 /**
+ * 
+ * @author Mishel Loeiza 9959-23-3457(COORDINADORA)
  * @author Cristofer pivaral
  * @author Ruddyard 959-23-1409
- * @author Mishel Loeiza 9959-23-3457
  * @author Rocio
  * @author Gabriela
- * @author Daniel private AhorcadoPanel ahorcadoPanel;
+ * @author Daniel 
+ * private AhorcadoPanel ahorcadoPanel;
  */
 public class NewJFrame extends javax.swing.JFrame {
 
@@ -38,14 +41,16 @@ public class NewJFrame extends javax.swing.JFrame {
     public NewJFrame() {
         initComponents();
         ahorcadoPanel = new AhorcadoPanel(); // Inicializa el panel
-        Ahorcado.setLayout(new java.awt.BorderLayout());
-        Ahorcado.add(ahorcadoPanel); // Añade el panel al contenedor
+        ahorcadoPanel.setPreferredSize(new Dimension(500, 500)); // Ajustar el tamaño preferido (ancho 600, altura 400)
+ Ahorcado.setLayout(new java.awt.BorderLayout());
+         Ahorcado.add(ahorcadoPanel); // Añade el panel al contenedor
         Modificar = new ImageIcon("C:\\Users\\ADMI\\OneDrive\\PROTOTIPO 2 AHOGADO OFICIAL\\ProyectoAhorcado\\clase06092024\\src\\icono.png");
     }
 
     private void actualizarDibujo() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
 
     public class AhorcadoPanel extends JPanel {
 
@@ -71,38 +76,142 @@ public class NewJFrame extends javax.swing.JFrame {
 // implementacioN de coordenadas 
 
         private void dibujarAgua(Graphics g) {
+            // Ajusta el nivel del agua para que sea más proporcional al tamaño del muñeco
+  
+    
             g.setColor(Color.BLUE);
             g.fillRect(0, getHeight() - nivelAgua, getWidth(), nivelAgua);
         }
 
-        private void dibujarMuneco(Graphics g) {
-            g.setColor(Color.BLACK);
-            int x = getWidth() / 2;
-            int y = getHeight() - nivelAgua - 50;
+        // Agrega la soga en el método dibujarMuneco
+private void dibujarMuneco(Graphics g) {
+    g.setColor(Color.BLACK);
 
-            switch (estadoMuñeco) {
-                case 1 ->
-                    g.drawOval(x - 10, y - 20, 20, 20); // Cabeza
-                case 2 -> {
-                    g.drawOval(x - 10, y - 20, 20, 20); // Cabeza
-                    g.drawLine(x, y, x, y + 30); // Cuerpo
-                }
-                case 3 -> {
-                    g.drawOval(x - 10, y - 20, 20, 20); // Cabeza
-                    g.drawLine(x, y, x, y + 30); // Cuerpo
-                    g.drawLine(x - 15, y + 10, x + 15, y + 10); // Brazo
-                }
-                case 4 -> {
-                    g.drawOval(x - 10, y - 20, 20, 20); // Cabeza
-                    g.drawLine(x, y, x, y + 30); // Cuerpo
-                    g.drawLine(x - 15, y + 10, x + 15, y + 10); // Brazo
-                    g.drawLine(x, y + 30, x - 10, y + 50); // Pierna izquierda
-                    g.drawLine(x, y + 30, x + 10, y + 50); // Pierna derecha
-                }
-            }
+    // Ajustamos el tamaño del muñeco
+    int tamañoCabeza = 40; // Cabeza más grande
+    int alturaCuerpo = 100; // Cuerpo más largo
+    int anchoBrazos = 80; // Brazos más largos
+    int alturaPiernas = 60; // Piernas más largas
+    int radioOjo = 5; // Radio de los ojos
+    int distanciaOjos = 10; // Distancia entre los ojos
+    int margenSonrisa = 5; // Margen para la sonrisa (ajustar para el caso 2)
+
+    // Ajustamos las coordenadas centrales del muñeco
+    int x = getWidth() / 2;
+    int y = getHeight() - nivelAgua - alturaCuerpo - tamañoCabeza; // Más espacio para el muñeco
+
+    // Dibujar la cuerda (soga)
+    g.setColor(Color.GRAY);
+    g.drawLine(x, y - tamañoCabeza, x, y - alturaCuerpo - tamañoCabeza); // Cuerda desde arriba hasta la cabeza
+
+    // Cambiamos a color negro para el muñeco
+    g.setColor(Color.BLACK);
+
+    // Dibujar el muñeco dependiendo del estado
+    switch (estadoMuñeco) {
+        case 1 -> {
+            // Cabeza
+            g.setColor(Color.BLACK);
+            g.drawOval(x - tamañoCabeza / 2, y - tamañoCabeza, tamañoCabeza, tamañoCabeza);
+
+            // Cara feliz
+            g.setColor(Color.YELLOW);
+            g.fillOval(x - tamañoCabeza / 2, y - tamañoCabeza, tamañoCabeza, tamañoCabeza); // Rellenar la cabeza con amarillo
+
+            g.setColor(Color.BLACK);
+            // Ojos
+            int ojoX1 = x - tamañoCabeza / 4 - radioOjo;
+            int ojoY1 = y - tamañoCabeza / 2 + tamañoCabeza / 4 - radioOjo;
+            int ojoX2 = x + tamañoCabeza / 4 - radioOjo;
+            int ojoY2 = ojoY1;
+            g.fillOval(ojoX1, ojoY1, radioOjo * 2, radioOjo * 2); // Ojo izquierdo
+            g.fillOval(ojoX2, ojoY2, radioOjo * 2, radioOjo * 2); // Ojo derecho
+
+            // Boca
+            g.drawArc(x - tamañoCabeza / 4, y - tamañoCabeza / 2 + tamañoCabeza / 4 + margenSonrisa, tamañoCabeza / 2, tamañoCabeza / 4, 0, -180); // Sonrisa
+        }
+
+        case 2 -> {
+            // Cabeza
+            g.setColor(Color.BLACK);
+            g.drawOval(x - tamañoCabeza / 2, y - tamañoCabeza, tamañoCabeza, tamañoCabeza);
+
+            // Cara feliz
+            g.setColor(Color.YELLOW);
+            g.fillOval(x - tamañoCabeza / 2, y - tamañoCabeza, tamañoCabeza, tamañoCabeza); // Rellenar la cabeza con amarillo
+
+            g.setColor(Color.BLACK);
+            // Ojos
+            int ojoX1 = x - tamañoCabeza / 4 - radioOjo;
+            int ojoY1 = y - tamañoCabeza / 2 + tamañoCabeza / 4 - radioOjo;
+            int ojoX2 = x + tamañoCabeza / 4 - radioOjo;
+            int ojoY2 = ojoY1;
+            g.fillOval(ojoX1, ojoY1, radioOjo * 2, radioOjo * 2); // Ojo izquierdo
+            g.fillOval(ojoX2, ojoY2, radioOjo * 2, radioOjo * 2); // Ojo derecho
+
+            // Boca
+            g.drawArc(x - tamañoCabeza / 4, y - tamañoCabeza / 2 + tamañoCabeza / 4 - 10, tamañoCabeza / 2, tamañoCabeza / 4, 0, -180); // Sonrisa ajustada
+            // Cuerpo
+            g.drawLine(x, y, x, y + alturaCuerpo);
+        }
+
+        case 3 -> {
+            // Cabeza
+            g.setColor(Color.BLACK);
+            g.drawOval(x - tamañoCabeza / 2, y - tamañoCabeza, tamañoCabeza, tamañoCabeza);
+            // Cara feliz
+            g.setColor(Color.YELLOW);
+            g.fillOval(x - tamañoCabeza / 2, y - tamañoCabeza, tamañoCabeza, tamañoCabeza); // Rellenar la cabeza con amarillo
+
+            g.setColor(Color.BLACK);
+            // Ojos
+            int ojoX1 = x - tamañoCabeza / 4 - radioOjo;
+            int ojoY1 = y - tamañoCabeza / 2 + tamañoCabeza / 4 - radioOjo;
+            int ojoX2 = x + tamañoCabeza / 4 - radioOjo;
+            int ojoY2 = ojoY1;
+            g.fillOval(ojoX1, ojoY1, radioOjo * 2, radioOjo * 2); // Ojo izquierdo
+            g.fillOval(ojoX2, ojoY2, radioOjo * 2, radioOjo * 2); // Ojo derecho
+
+            // Boca
+            g.drawArc(x - tamañoCabeza / 4, y - tamañoCabeza / 2 + tamañoCabeza / 4 - 10, tamañoCabeza / 2, tamañoCabeza / 4, 0, -180); // Sonrisa ajustada
+            // Cuerpo
+            g.drawLine(x, y, x, y + alturaCuerpo);
+            // Brazos
+            g.drawLine(x - anchoBrazos / 2, y + tamañoCabeza / 2, x + anchoBrazos / 2, y + tamañoCabeza / 2);
+        }
+
+        case 4 -> {
+            // Cabeza
+            g.setColor(Color.BLACK);
+            g.drawOval(x - tamañoCabeza / 2, y - tamañoCabeza, tamañoCabeza, tamañoCabeza);
+            // Cara feliz
+            g.setColor(Color.YELLOW);
+            g.fillOval(x - tamañoCabeza / 2, y - tamañoCabeza, tamañoCabeza, tamañoCabeza); // Rellenar la cabeza con amarillo
+
+            g.setColor(Color.BLACK);
+            // Ojos
+            int ojoX1 = x - tamañoCabeza / 4 - radioOjo;
+            int ojoY1 = y - tamañoCabeza / 2 + tamañoCabeza / 4 - radioOjo;
+            int ojoX2 = x + tamañoCabeza / 4 - radioOjo;
+            int ojoY2 = ojoY1;
+            g.fillOval(ojoX1, ojoY1, radioOjo * 2, radioOjo * 2); // Ojo izquierdo
+            g.fillOval(ojoX2, ojoY2, radioOjo * 2, radioOjo * 2); // Ojo derecho
+
+            // Boca
+            g.drawArc(x - tamañoCabeza / 4, y - tamañoCabeza / 2 + tamañoCabeza / 4 - 10, tamañoCabeza / 2, tamañoCabeza / 4, 0, -180); // Sonrisa ajustada
+            // Cuerpo
+            g.drawLine(x, y, x, y + alturaCuerpo);
+            // Brazos
+            g.drawLine(x - anchoBrazos / 2, y + tamañoCabeza / 2, x + anchoBrazos / 2, y + tamañoCabeza / 2);
+            // Piernas
+            g.drawLine(x, y + alturaCuerpo, x - 20, y + alturaCuerpo + alturaPiernas); // Pierna izquierda
+            g.drawLine(x, y + alturaCuerpo, x + 20, y + alturaCuerpo + alturaPiernas); // Pierna derecha
         }
     }
+}
 
+
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -112,6 +221,7 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         color = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtIngresarPalabra = new javax.swing.JPasswordField();
@@ -230,7 +340,7 @@ public class NewJFrame extends javax.swing.JFrame {
         Ahorcado.setLayout(AhorcadoLayout);
         AhorcadoLayout.setHorizontalGroup(
             AhorcadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 493, Short.MAX_VALUE)
+            .addGap(0, 383, Short.MAX_VALUE)
         );
         AhorcadoLayout.setVerticalGroup(
             AhorcadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -390,78 +500,80 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addGroup(colorLayout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addComponent(btnH)
-                        .addGap(19, 19, 19)
                         .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(colorLayout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(Ahorcado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel10))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(19, 19, 19)
+                                .addComponent(jLabel10))
+                            .addGroup(colorLayout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(Ahorcado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(78, Short.MAX_VALUE))))
         );
         colorLayout.setVerticalGroup(
             colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, colorLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addGap(24, 24, 24)
-                .addComponent(txtIngresarPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnIniciarjuego)
-                .addGap(46, 46, 46)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, colorLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10)
+                        .addGap(36, 36, 36)
+                        .addComponent(Ahorcado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(colorLayout.createSequentialGroup()
-                        .addComponent(txtIngresarLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1)
+                        .addGap(24, 24, 24)
+                        .addComponent(txtIngresarPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnverificar)
-                        .addGap(78, 78, 78)
-                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(colorLayout.createSequentialGroup()
+                        .addComponent(btnIniciarjuego)
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(colorLayout.createSequentialGroup()
+                                .addComponent(txtIngresarLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnverificar)
+                                .addGap(78, 78, 78)
+                                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(colorLayout.createSequentialGroup()
+                                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btNC)
+                                    .addComponent(btnB)
+                                    .addComponent(btnE)
+                                    .addComponent(btnD)
+                                    .addComponent(btnA)
+                                    .addComponent(btnF)
+                                    .addComponent(btnG)
+                                    .addComponent(btnH))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnI)
+                                    .addComponent(btnJ))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                         .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btNC)
-                            .addComponent(btnB)
-                            .addComponent(btnE)
-                            .addComponent(btnD)
-                            .addComponent(btnA)
-                            .addComponent(btnF)
-                            .addComponent(btnG)
-                            .addComponent(btnH))
+                            .addComponent(txtLestrasEncontradas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(txtTotalIngresos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnI)
-                            .addComponent(btnJ))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
-                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtLestrasEncontradas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtTotalIngresos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtfallidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtIntentosFaltantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReiniciar)
-                    .addComponent(salir))
+                            .addComponent(jLabel7)
+                            .addComponent(txtfallidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(txtIntentosFaltantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnReiniciar)
+                            .addComponent(salir))))
                 .addGap(23, 23, 23))
-            .addGroup(colorLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Ahorcado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -470,8 +582,8 @@ public class NewJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(color, javax.swing.GroupLayout.PREFERRED_SIZE, 836, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addComponent(color, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -648,12 +760,12 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
         if (intentosFallidos >= maxIntentos) {
             JOptionPane.showMessageDialog(this, "¡Has perdido! La palabra era: " + palabraSecreta);
             // Cerrar la ventana después de perder
-            this.dispose();  // O System.exit(0) para cerrar toda la aplicación
+              // volver
         }
     } else if (palabraAdivinada.toString().equals(palabraSecreta)) {
         JOptionPane.showMessageDialog(this, "¡Felicidades! ¡Has ganado!");
         // Cerrar la ventana después de ganar
-        this.dispose();  // O System.exit(0) para cerrar toda la aplicación
+          // volver
     }
     
     // Limpiar el campo de texto para la siguiente letra
@@ -897,6 +1009,7 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JButton salir;
     private javax.swing.JTextField txtIngresarLetra;
     private javax.swing.JPasswordField txtIngresarPalabra;
