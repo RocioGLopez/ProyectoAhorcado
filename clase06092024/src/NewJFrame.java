@@ -1087,7 +1087,7 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
     }//GEN-LAST:event_btnNActionPerformed
 
     private void btnÑActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÑActionPerformed
-        // TODO add your handling code here:
+        // ToDO add your handling code here:
         // Lógica para manejar la letra "ñ"
         if (txtIngresarPalabra.isEnabled()) {
             // si esta habilitado, set text "ñ"
