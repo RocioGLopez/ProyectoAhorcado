@@ -297,6 +297,9 @@ private void dibujarMuneco(Graphics g) {
         btnU = new javax.swing.JButton();
         btnV = new javax.swing.JButton();
         btnW = new javax.swing.JButton();
+        btnX = new javax.swing.JButton();
+        btnY = new javax.swing.JButton();
+        btnZ = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -573,6 +576,30 @@ private void dibujarMuneco(Graphics g) {
             }
         });
 
+        btnX.setFont(new java.awt.Font("Viner Hand ITC", 3, 12)); // NOI18N
+        btnX.setText("X");
+        btnX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXActionPerformed(evt);
+            }
+        });
+
+        btnY.setFont(new java.awt.Font("Viner Hand ITC", 3, 12)); // NOI18N
+        btnY.setText("Y");
+        btnY.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnYActionPerformed(evt);
+            }
+        });
+
+        btnZ.setFont(new java.awt.Font("Viner Hand ITC", 3, 12)); // NOI18N
+        btnZ.setText("Z");
+        btnZ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnZActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout colorLayout = new javax.swing.GroupLayout(color);
         color.setLayout(colorLayout);
         colorLayout.setHorizontalGroup(
@@ -666,14 +693,20 @@ private void dibujarMuneco(Graphics g) {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnU)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnV)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnW)))
+                                        .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btnZ)
+                                            .addGroup(colorLayout.createSequentialGroup()
+                                                .addComponent(btnV)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnW)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnX)))))
                                 .addGap(3, 3, 3)))
                         .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnG)
                             .addComponent(btnN)
-                            .addComponent(btnS))))
+                            .addComponent(btnS)
+                            .addComponent(btnY))))
                 .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(colorLayout.createSequentialGroup()
                         .addGap(130, 130, 130)
@@ -752,8 +785,12 @@ private void dibujarMuneco(Graphics g) {
                                     .addComponent(btnT)
                                     .addComponent(btnU)
                                     .addComponent(btnV)
-                                    .addComponent(btnW))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                                    .addComponent(btnW)
+                                    .addComponent(btnX)
+                                    .addComponent(btnY))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnZ)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
                         .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtLestrasEncontradas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
@@ -1408,6 +1445,62 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
         ahorcadoPanel.setEstadoMuñeco(1);
     }//GEN-LAST:event_btnWActionPerformed
 
+    private void btnXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXActionPerformed
+         // TODO add your handling code here:
+        // Lógica para manejar la letra "x"
+        if (txtIngresarPalabra.isEnabled()) {
+            // si esta habilitado, set text "x"
+            // Subrallado indica que es un password file 
+            // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "x");
+        } else {
+            // si esta desactivado agregar la letra a en txt ingresar letra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("x");
+        };
+
+        ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
+        ahorcadoPanel.setEstadoMuñeco(2);                              
+    }//GEN-LAST:event_btnXActionPerformed
+
+    private void btnYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnYActionPerformed
+        // TODO add your handling code here:
+           // TODO add your handling code here:
+        // Lógica para manejar la letra "Y"
+        if (txtIngresarPalabra.isEnabled()) {
+            // si esta habilitado, set text "y"
+            // Subrallado indica que es un password file 
+            // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "Y");
+        } else {
+            // si esta desactivado agregar la letra a en txt ingresar letra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("y");
+        };
+
+        ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
+        ahorcadoPanel.setEstadoMuñeco(3);
+    }//GEN-LAST:event_btnYActionPerformed
+
+    private void btnZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZActionPerformed
+        // TODO add your handling code here:
+           // TODO add your handling code here:
+        // Lógica para manejar la letra "Z"
+        if (txtIngresarPalabra.isEnabled()) {
+            // si esta habilitado, set text "z"
+            // Subrallado indica que es un password file 
+            // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "z");
+        } else {
+            // si esta desactivado agregar la letra a en txt ingresar letra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("z");
+        };
+
+        ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
+        ahorcadoPanel.setEstadoMuñeco(4);
+    }//GEN-LAST:event_btnZActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1470,6 +1563,9 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
     private javax.swing.JButton btnU;
     private javax.swing.JButton btnV;
     private javax.swing.JButton btnW;
+    private javax.swing.JButton btnX;
+    private javax.swing.JButton btnY;
+    private javax.swing.JButton btnZ;
     private javax.swing.JButton btnverificar;
     private javax.swing.JButton btnÑ;
     private javax.swing.JPanel color;
