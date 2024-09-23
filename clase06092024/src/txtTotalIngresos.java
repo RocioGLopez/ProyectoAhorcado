@@ -7,6 +7,7 @@
  *
  * @author 50259
  */
+//acá va el total de ingresos de las letras, ya sean buenos o malos, se cuentan los ingresos
 class txtTotalIngresos {
     
 }
