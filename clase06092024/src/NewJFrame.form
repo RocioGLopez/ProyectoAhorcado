@@ -154,7 +154,17 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="btnM" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="btnÑ" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="btnÑ" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="btnO" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="btnP" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="btnQ" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="btnR" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                               </Group>
@@ -162,6 +172,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btnG" min="-2" max="-2" attributes="0"/>
                               <Component id="btnN" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnS" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -243,7 +254,14 @@
                                       <Component id="btnN" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnÑ" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="btnÑ" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnO" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnP" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnQ" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnR" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <EmptySpace pref="108" max="32767" attributes="0"/>
@@ -574,6 +592,61 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn&#xd1;ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnO">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Viner Hand ITC" size="12" style="3"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="O"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnP">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Viner Hand ITC" size="12" style="3"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="P"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnQ">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Viner Hand ITC" size="12" style="3"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Q"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnR">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Viner Hand ITC" size="12" style="3"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="R"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnS">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Viner Hand ITC" size="12" style="3"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="S"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
