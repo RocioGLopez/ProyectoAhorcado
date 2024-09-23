@@ -293,6 +293,10 @@ private void dibujarMuneco(Graphics g) {
         btnQ = new javax.swing.JButton();
         btnR = new javax.swing.JButton();
         btnS = new javax.swing.JButton();
+        btnT = new javax.swing.JButton();
+        btnU = new javax.swing.JButton();
+        btnV = new javax.swing.JButton();
+        btnW = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -537,6 +541,38 @@ private void dibujarMuneco(Graphics g) {
             }
         });
 
+        btnT.setFont(new java.awt.Font("Viner Hand ITC", 3, 12)); // NOI18N
+        btnT.setText("T");
+        btnT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTActionPerformed(evt);
+            }
+        });
+
+        btnU.setFont(new java.awt.Font("Viner Hand ITC", 3, 12)); // NOI18N
+        btnU.setText("U");
+        btnU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUActionPerformed(evt);
+            }
+        });
+
+        btnV.setFont(new java.awt.Font("Viner Hand ITC", 3, 12)); // NOI18N
+        btnV.setText("V");
+        btnV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVActionPerformed(evt);
+            }
+        });
+
+        btnW.setFont(new java.awt.Font("Viner Hand ITC", 3, 12)); // NOI18N
+        btnW.setText("W");
+        btnW.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnWActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout colorLayout = new javax.swing.GroupLayout(color);
         color.setLayout(colorLayout);
         colorLayout.setHorizontalGroup(
@@ -624,7 +660,15 @@ private void dibujarMuneco(Graphics g) {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnQ)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnR)))
+                                        .addComponent(btnR))
+                                    .addGroup(colorLayout.createSequentialGroup()
+                                        .addComponent(btnT)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnU)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnV)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnW)))
                                 .addGap(3, 3, 3)))
                         .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnG)
@@ -702,7 +746,13 @@ private void dibujarMuneco(Graphics g) {
                                     .addComponent(btnP)
                                     .addComponent(btnQ)
                                     .addComponent(btnR)
-                                    .addComponent(btnS))))
+                                    .addComponent(btnS))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnT)
+                                    .addComponent(btnU)
+                                    .addComponent(btnV)
+                                    .addComponent(btnW))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                         .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtLestrasEncontradas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1284,6 +1334,80 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
         ahorcadoPanel.setEstadoMuñeco(1);
     }//GEN-LAST:event_btnSActionPerformed
 
+    private void btnTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTActionPerformed
+    // TODO add your handling code here:
+         // TODO add your handling code here:
+        // Lógica para manejar la letra "T"
+        if (txtIngresarPalabra.isEnabled()) {
+            // si esta habilitado, set text "T"
+            // Subrallado indica que es un password file 
+            // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "t");
+        } else {
+            // si esta desactivado agregar la letra a en txt ingresar letra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("t");
+        };
+
+        ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
+        ahorcadoPanel.setEstadoMuñeco(4);
+    }//GEN-LAST:event_btnTActionPerformed
+
+    private void btnUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUActionPerformed
+         // TODO add your handling code here:
+        // Lógica para manejar la letra "u"
+        if (txtIngresarPalabra.isEnabled()) {
+            // si esta habilitado, set text "u"
+            // Subrallado indica que es un password file 
+            // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "u");
+        } else {
+            // si esta desactivado agregar la letra a en txt ingresar letra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("u");
+        };
+
+        ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
+        ahorcadoPanel.setEstadoMuñeco(2);
+    }//GEN-LAST:event_btnUActionPerformed
+
+    private void btnVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVActionPerformed
+         // TODO add your handling code here:
+        // Lógica para manejar la letra "v"
+        if (txtIngresarPalabra.isEnabled()) {
+            // si esta habilitado, set text "v"
+            // Subrallado indica que es un password file 
+            // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "v");
+        } else {
+            // si esta desactivado agregar la letra a en txt ingresar letra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("v");
+        };
+
+        ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
+        ahorcadoPanel.setEstadoMuñeco(3);
+    }//GEN-LAST:event_btnVActionPerformed
+
+    private void btnWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWActionPerformed
+        // TODO add your handling code here:
+         // TODO add your handling code here:
+        // Lógica para manejar la letra "w"
+        if (txtIngresarPalabra.isEnabled()) {
+            // si esta habilitado, set text "w"
+            // Subrallado indica que es un password file 
+            // Ingresa a txtIngresarPalabra el texto que contiene como predeterminado + a 
+            txtIngresarPalabra.setText(txtIngresarPalabra.getText() + "w");
+        } else {
+            // si esta desactivado agregar la letra a en txt ingresar letra
+            //Para else usar el que borra ya que solo se puede introducir una letra a la vez
+            txtIngresarLetra.setText("w");
+        };
+
+        ahorcadoPanel.setNivelAgua(ahorcadoPanel.getHeight() / 2); // Ajusta según sea necesario
+        ahorcadoPanel.setEstadoMuñeco(1);
+    }//GEN-LAST:event_btnWActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1342,6 +1466,10 @@ JOptionPane.showMessageDialog(null, "¡Vamos de nuevo !");
     private javax.swing.JButton btnR;
     private javax.swing.JButton btnReiniciar;
     private javax.swing.JButton btnS;
+    private javax.swing.JButton btnT;
+    private javax.swing.JButton btnU;
+    private javax.swing.JButton btnV;
+    private javax.swing.JButton btnW;
     private javax.swing.JButton btnverificar;
     private javax.swing.JButton btnÑ;
     private javax.swing.JPanel color;
