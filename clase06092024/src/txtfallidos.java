@@ -7,6 +7,7 @@
  *
  * @author 50259
  */
+//acá va la clase de intentos fallidos, la cual nos dará los intentos que no tuvieron logro
 class txtfallidos {
     
 }
