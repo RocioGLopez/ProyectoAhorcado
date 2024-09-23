@@ -7,6 +7,7 @@
  *
  * @author 50259
  */
+//acá va la clase para letras encontradas, la cual no sayudará a saber cuales letras ya están y cuales no
 class txtLestrasEncontradas {
 
     static void setText(String toString) {
